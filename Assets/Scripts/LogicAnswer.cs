@@ -12,8 +12,8 @@ public class LogicAnswer : MonoBehaviour
     void Start()
     {
         LoadCSV();
-        string dato = ModifyValues(2,"R1");
-        Debug.Log("dato");
+        string[] dato = ModifyValues(3,"R1");
+        Debug.Log(dato[0]+"---"+dato[1]+"---"+dato[2]);
     }
 
     // Update is called once per frame
@@ -21,6 +21,7 @@ public class LogicAnswer : MonoBehaviour
     {
         
     }
+
     //Funcion que cargara el CSV
     void LoadCSV (){
         string filePath = Path.Combine(Application.dataPath,"archivo.csv");
@@ -46,14 +47,42 @@ public class LogicAnswer : MonoBehaviour
 
     }
 
-    string ModifyValues(int questionIndex, string response){
+    /**
+    //Funcion que averiguaria el Index de la pregunta
+    int GetQuestionIndex(string question){
+        for (int i = 0; i < questionData.Count; i++)
+        {
+            if(questionData[i]["Pregunta"]== question){
+                return i;
+            }
+        }
+        return 0;
+    }
+    **/
+
+    //Modificar los valores(Actualmente los Visualizo)
+    string[] ModifyValues(int questionIndex, string response){
         Dictionary<string, string> entry = questionData[questionIndex];
-        if(response == "Res1"){
-            return entry["Fel1"];
-        }else if(response =="Res2"){
-            return entry["Fel2"];
+        string[] values = new string[3];
+        Debug.Log("Respuesta: "+response);
+        if(response == "Respuesta1"){
+            values[0] = entry["ValorF1"];
+            values[1] = entry["ValorL1"];
+            values[2] = entry["ValorI1"];
+
+            return values;
+        }else if(response =="Respuesta2"){
+            values[0] = entry["ValorF2"];
+            values[1] = entry["ValorL2"];
+            values[2] = entry["ValorI2"];
+            
+            return values;
         }else{
-            return "Random";
+            values[0] = entry["ValorF1"];
+            values[1] = entry["ValorL2"];
+            values[2] = entry["ValorI2"];
+
+            return values;
         }
     }
 }
