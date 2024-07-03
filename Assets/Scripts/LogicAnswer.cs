@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using TMPro;
 
 public class LogicAnswer : MonoBehaviour
 {
     private List<Dictionary<string,string>> questionData = new List<Dictionary<string,string>>();
     private string[] keys;
+
+    private int index = 2;
+
     //Resources sinews;
 
 
@@ -18,8 +22,8 @@ public class LogicAnswer : MonoBehaviour
     void Start()
     {
         LoadCSV();
-        LoadCSVLine(2);
-        string[] dato = ModifyValues(2,"R1");
+        LoadCSVLine(index);
+        string[] dato = ModifyValues(index,"R1");
         Debug.Log(dato[0]+"---"+dato[1]+"---"+dato[2]);
     }
 
@@ -87,24 +91,32 @@ public class LogicAnswer : MonoBehaviour
     }
     **/
 
+    //Funcion del Boton
+    public void OnAnswerSelected(string respuesta){
+        ModifyValues(index,respuesta);
+    }
+
     //Modificar los valores(Actualmente los Visualizo)
     string[] ModifyValues(int questionIndex, string response){
         Dictionary<string, string> entry = questionData[questionIndex];
         string[] values = new string[3];
         Debug.Log("Respuesta: "+response);
         if(response == "Respuesta1"){
+            //Valores de la Respuesta 1
             values[0] = entry["ValorF1"];
             values[1] = entry["ValorL1"];
             values[2] = entry["ValorI1"];
 
             return values;
         }else if(response =="Respuesta2"){
+            //Valores de la Respuesta 2
             values[0] = entry["ValorF2"];
             values[1] = entry["ValorL2"];
             values[2] = entry["ValorI2"];
             
             return values;
         }else{
+            //Valores de Respuesta Random
             values[0] = entry["ValorF1"];
             values[1] = entry["ValorL2"];
             values[2] = entry["ValorI2"];
