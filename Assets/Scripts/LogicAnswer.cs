@@ -7,12 +7,19 @@ public class LogicAnswer : MonoBehaviour
 {
     private List<Dictionary<string,string>> questionData = new List<Dictionary<string,string>>();
     private string[] keys;
+    //Resources sinews;
+
+
+    private void Awake() {
+        //sinews = FindObjectOfType<Resources>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         LoadCSV();
-        string[] dato = ModifyValues(3,"R1");
+        LoadCSVLine(2);
+        string[] dato = ModifyValues(2,"R1");
         Debug.Log(dato[0]+"---"+dato[1]+"---"+dato[2]);
     }
 
@@ -22,7 +29,7 @@ public class LogicAnswer : MonoBehaviour
         
     }
 
-    //Funcion que cargara el CSV
+    //Funcion que cargara el CSV entero
     void LoadCSV (){
         string filePath = Path.Combine(Application.dataPath,"archivo.csv");
         if(File.Exists(filePath)){
@@ -39,6 +46,26 @@ public class LogicAnswer : MonoBehaviour
                     entry[keys[j]] = values[j];
                 }
                 questionData.Add(entry);
+            }
+        }else
+        {
+            Debug.Log("No hay Archivo CSV");
+        }
+
+    }
+
+    //Funcion que cargara una Linea del CSV especificada
+    void LoadCSVLine (int lineNumber){
+        if(lineNumber < questionData.Count){
+            Dictionary<string,string> lineData = questionData[lineNumber];
+            if(lineData !=null ){
+                foreach (KeyValuePair<string,string> item in lineData)
+                {
+                    Debug.Log("Linea: "+ (lineNumber+1)+" : "+ item.Key+" : "+ item.Value);
+                }
+            }
+            else{
+                Debug.Log("Linea no encotrada");
             }
         }else
         {
@@ -84,5 +111,6 @@ public class LogicAnswer : MonoBehaviour
 
             return values;
         }
+        //sinews.ModifyResource(values);
     }
 }
