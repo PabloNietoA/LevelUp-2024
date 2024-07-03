@@ -11,11 +11,11 @@ public class LogicAnswer : MonoBehaviour
 
     private int index = 2;
 
-    //Resources sinews;
+    Resources sinews;
 
 
     private void Awake() {
-        //sinews = FindObjectOfType<Resources>();
+        sinews = FindObjectOfType<Resources>();
     }
 
     // Start is called before the first frame update
@@ -23,8 +23,9 @@ public class LogicAnswer : MonoBehaviour
     {
         LoadCSV();
         LoadCSVLine(index);
-        string[] dato = ModifyValues(index,"R1");
-        Debug.Log(dato[0]+"---"+dato[1]+"---"+dato[2]);
+        //string[] dato = ModifyValues(index,"R1");
+        ModifyValues(index,"Respuesta2");
+        //Debug.Log(dato[0]+"---"+dato[1]+"---"+dato[2]);
     }
 
     // Update is called once per frame
@@ -65,7 +66,7 @@ public class LogicAnswer : MonoBehaviour
             if(lineData !=null ){
                 foreach (KeyValuePair<string,string> item in lineData)
                 {
-                    Debug.Log("Linea: "+ (lineNumber+1)+" : "+ item.Key+" : "+ item.Value);
+                    //Debug.Log("Linea: "+ (lineNumber+1)+" : "+ item.Key+" : "+ item.Value);
                 }
             }
             else{
@@ -101,28 +102,38 @@ public class LogicAnswer : MonoBehaviour
         Dictionary<string, string> entry = questionData[questionIndex];
         string[] values = new string[3];
         Debug.Log("Respuesta: "+response);
+        Debug.Log("OK");
         if(response == "Respuesta1"){
+            Debug.Log("OKKKKKK");
             //Valores de la Respuesta 1
             values[0] = entry["ValorF1"];
             values[1] = entry["ValorL1"];
             values[2] = entry["ValorI1"];
+            //values[3] = entry["ValorA1"];
 
-            return values;
+            //return values;
         }else if(response =="Respuesta2"){
+            Debug.Log("Noooooo");
             //Valores de la Respuesta 2
             values[0] = entry["ValorF2"];
             values[1] = entry["ValorL2"];
             values[2] = entry["ValorI2"];
+            //values[3] = entry["ValorA1"];
             
-            return values;
+            //return values;
         }else{
+            Debug.Log("yeyeyeyeye");
             //Valores de Respuesta Random
             values[0] = entry["ValorF1"];
             values[1] = entry["ValorL2"];
             values[2] = entry["ValorI2"];
+            //values[3] = entry["ValorA1"];
 
-            return values;
+            //return values;
         }
-        //sinews.ModifyResource(values);
+        sinews.ModifyResource(values);
+        sinews.ShowResources();
+
+        return values;
     }
 }
