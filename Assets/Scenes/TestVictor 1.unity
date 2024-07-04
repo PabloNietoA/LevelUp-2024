@@ -793,6 +793,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7627999801667490561}
   - component: {fileID: 3350655671313079695}
+  - component: {fileID: 7627999801667490562}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Manager
@@ -817,9 +818,9 @@ MonoBehaviour:
   RespuestasBotonPrefab: {fileID: 6863514066750479013, guid: dbf3b08c429c2e74ab87178ea5d59b73, type: 3}
   RespuestasVacioPrefab: {fileID: 5555091386615536704, guid: 70544f8c2d0af9e4db71d6f4f84300ef, type: 3}
   RespuestaPrefab: {fileID: 7700539118574323667, guid: f85bfdfb83f16a340a536a6302ac6158, type: 3}
+  ObjetoContenidos: {fileID: 2004778859}
   ContenidoMensajesEsbirros: {fileID: 1155647553}
   ContenidoMensajesNuestros: {fileID: 934942977}
-  ObjetoContenidos: {fileID: 0}
 --- !u!4 &7627999801667490561
 Transform:
   m_ObjectHideFlags: 0
@@ -835,6 +836,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7627999801667490562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2258633658685982590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e23e8d67ca9c20644a6252ca3badd729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
