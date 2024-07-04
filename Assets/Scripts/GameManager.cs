@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     string answerText1;
     string answerText2;
 
+
+    public string idioma = "ESP"; //ESP ENG CAT
     private int questionIndex;
 
     Resources sinews;
@@ -57,14 +59,28 @@ public class GameManager : MonoBehaviour
 
     //Funcion que cargara el CSV entero
     void LoadCSV (){
-        string filePath = Path.Combine(Application.dataPath,"archivo.csv");
-        if(File.Exists(filePath)){
+        string filePath;
+        if (idioma == "ESP")
+        {
+            filePath = Path.Combine(Application.dataPath + "/Textos", "ESP.tsv");
+        }
+        else if (idioma == "ENG")
+        {
+            filePath = Path.Combine(Application.dataPath + "/Textos", "ENG.tsv");
+        }
+        else if (idioma == "CAT")
+        {
+            filePath = Path.Combine(Application.dataPath + "/Textos", "CAT.tsv");
+        }
+        else filePath = "";
+        if(File.Exists(filePath))
+        {
             string[] data = File.ReadAllLines(filePath);
-            keys = data[0].Split(",");
+            keys = data[0].Split("\t");
 
             for (int i = 1; i < data.Length; i++)
             {
-                string[] values = data[i].Split(",");
+                string[] values = data[i].Split("\t");
                 Dictionary<string,string> entry = new Dictionary<string,string>();
 
                 for (int j = 0; j < keys.Length; j++)
@@ -73,11 +89,11 @@ public class GameManager : MonoBehaviour
                 }
                 questionData.Add(entry);
             }
-        }else
+        }
+        else
         {
             Debug.Log("No hay Archivo CSV");
         }
-
     }
 
     //Funcion que genera el index de la pregunta aleatoria
@@ -114,7 +130,7 @@ public class GameManager : MonoBehaviour
     void ChargeNewMessage()
     {
         Dictionary<string, string> entry = questionData[questionIndex];
-        questionText = entry["Pregunta"];
+        questionText = entry["Eventos"];
     }
 
     void ChargeAnswers()
@@ -122,10 +138,11 @@ public class GameManager : MonoBehaviour
         Dictionary<string, string> entry = questionData[questionIndex];
         shortAnswerText1 = entry["Respuesta1"];
         shortAnswerText2 = entry["Respuesta2"];
-        answerText1 = entry["Respuesta1"];
-        answerText2 = entry["Respuesta2"];
+        answerText1 = entry["CortoR1"];
+        if (answerText1 == "") answerText1 = entry["Respuesta1"];
+        answerText2 = entry["CortoR2"];
+        if (answerText2 == "") answerText2 = entry["Respuesta2"];
     }
-
 
     void GenerarPreguntaYRespuestas()
     {
@@ -190,35 +207,37 @@ public class GameManager : MonoBehaviour
 
 string[] ModifyValues(int questionIndex, int response){
         Dictionary<string, string> entry = questionData[questionIndex];
-        string[] values = new string[3];
+        string[] values = new string[4];
         Debug.Log("Respuesta: "+response);
         Debug.Log("OK");
         if(response == 1){
             Debug.Log("OKKKKKK");
             //Valores de la Respuesta 1
-            values[0] = entry["ValorF1"];
-            values[1] = entry["ValorL1"];
-            values[2] = entry["ValorI1"];
-            //values[3] = entry["ValorA1"];
+            values[0] = entry["FelicidadResp1"];
+            values[1] = entry["LocR1"];
+            values[2] = entry["IntR1"];
+            values[3] = entry["VarMiem1"];
+            if (values[3] == "") values[3] = "0";
 
             //return values;
         }else if(response == 2){
             Debug.Log("Noooooo");
             //Valores de la Respuesta 2
-            values[0] = entry["ValorF2"];
-            values[1] = entry["ValorL2"];
-            values[2] = entry["ValorI2"];
-            //values[3] = entry["ValorA1"];
-            
+            values[0] = entry["FelicidadResp2"];
+            values[1] = entry["LocR2"];
+            values[2] = entry["IntR2"];
+            values[3] = entry["VarMiem2"];
+            if (values[3] == "") values[3] = "0";
             //return values;
-        }else{
+        }
+        else{
             Debug.Log("yeyeyeyeye");
             //Valores de Respuesta Random
-            values[0] = entry["ValorF1"];
-            values[1] = entry["ValorL2"];
-            values[2] = entry["ValorI2"];
-            //values[3] = entry["ValorA1"];
-
+            values[0] = entry["FelicidadResp1"];
+            values[1] = entry["LocR2"];
+            values[2] = entry["IntR2"];
+            values[3] = entry["VarMiem1"];
+            if (values[3] == "") values[3] = "0";
             //return values;
         }
         sinews.ModifyResource(values);
