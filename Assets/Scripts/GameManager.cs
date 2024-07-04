@@ -35,6 +35,9 @@ public class GameManager : MonoBehaviour
 
     Resources sinews;
 
+    private string nombreSecta;
+
+
     private void Awake() {
         sinews = FindObjectOfType<Resources>();
     }
@@ -55,6 +58,13 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void ModNombreSecta(GameObject textarea)
+    {
+        TMP_InputField inputField = textarea.GetComponent<TMP_InputField>();
+        nombreSecta = inputField.text;
+        inputField.interactable = false;
+
+    }
     //Funcion que cargara el CSV entero
     void LoadCSV (){
         string filePath = Path.Combine(Application.dataPath,"archivo.csv");
