@@ -739,9 +739,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2004778860}
+  - component: {fileID: 2004778861}
   m_Layer: 5
   m_Name: Contenidos
-  m_TagString: Untagged
+  m_TagString: Content
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -767,6 +768,21 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0099792, y: 0.00009348785}
   m_SizeDelta: {x: 1901.1, y: 814.51}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2004778861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004778859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3e0bf429fffe2044b1f1c6bcf0a79ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ContentMaster: {fileID: 2004778859}
+  ContentChild: {fileID: 1155647553}
+  CantidadDeSuma: 200
 --- !u!1 &2258633658685982590
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,6 +819,7 @@ MonoBehaviour:
   RespuestaPrefab: {fileID: 7700539118574323667, guid: f85bfdfb83f16a340a536a6302ac6158, type: 3}
   ContenidoMensajesEsbirros: {fileID: 1155647553}
   ContenidoMensajesNuestros: {fileID: 934942977}
+  ObjetoContenidos: {fileID: 0}
 --- !u!4 &7627999801667490561
 Transform:
   m_ObjectHideFlags: 0
