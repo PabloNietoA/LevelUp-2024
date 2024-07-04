@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -136,6 +137,9 @@ public class GameManager : MonoBehaviour
         //Esbirro
         GameObject ObjetoTemporal = Instantiate(EsbirroMensajePrefab);//texto (Aun queda por cambiar el texto, se cambia siguiente a este)
         ObjetoTemporal.transform.parent = ContenidoMensajesEsbirros.transform;
+        Image aux = ObjetoTemporal.GetComponentInChildren<Image>();
+        Color color = GenerateRandomColor();
+        aux.color = color;
         ObjetoTemporal.GetComponentInChildren<TMP_Text>().text = questionText;
 
         ObjetoTemporal = Instantiate(EsbirroMensajeVacioPrefab); //Vacio
@@ -152,6 +156,12 @@ public class GameManager : MonoBehaviour
         text[0].text= answerText1;
         text[1].text= answerText2;
 
+    }
+
+    Color GenerateRandomColor(){
+        float t= Random.Range(1f,100f);
+        Color color = Color.HSVToRGB((t/100),1f,1f);
+        return color;
     }
 
 
