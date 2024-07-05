@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject RecursoIntel;
     [SerializeField] private GameObject RecursoFelicidad;
 
+    [Header("Color&Images Esbirros")]
+    private string[] colors = {"#b3a1d4","#c0baf7","#e1bc93","#abc7e6","#ca89c8","#9ec29f"};
+    private Sprite[] colorsimages;
+    private Sprite[] images;
 
     [Header("Idioma")]
 
@@ -58,6 +62,7 @@ public class GameManager : MonoBehaviour
     {
         sinews.SetResourceIcons(RecursoLocura, RecursoIntel, RecursoFelicidad);
         LoadCSV();
+        LoadMembersImage();
         questionIndex = GetLine();
         //LoadCSVLine(questionIndex);
         GenerarPreguntaYRespuestas();
@@ -68,6 +73,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    void LoadMembersImage (){
+        images = UnityEngine.Resources.LoadAll<Sprite>("Images");
+        colorsimages = UnityEngine.Resources.LoadAll<Sprite>("Background");
     }
 
     //Funcion que cargara el CSV entero
@@ -166,9 +176,13 @@ public class GameManager : MonoBehaviour
         //Esbirro
         GameObject ObjetoTemporal = Instantiate(EsbirroMensajePrefab);//texto (Aun queda por cambiar el texto, se cambia siguiente a este)
         ObjetoTemporal.transform.parent = ContenidoMensajesEsbirros.transform;
-        Image aux = ObjetoTemporal.GetComponentInChildren<Image>();
+        Image[] aux = ObjetoTemporal.GetComponentsInChildren<Image>();
         Color color = GenerateRandomColor();
-        aux.color = color;
+        //aux[0].color = color;
+        int imageNumber= Random.Range(0,colorsimages.Length);
+        aux[0].sprite = colorsimages[imageNumber];
+        imageNumber= Random.Range(0,images.Length);
+        aux[1].sprite = images[imageNumber];
         ObjetoTemporal.GetComponentInChildren<TMP_Text>().text = questionText;
 
         ObjetoTemporal = Instantiate(EsbirroMensajeVacioPrefab); //Vacio
@@ -188,8 +202,9 @@ public class GameManager : MonoBehaviour
     }
 
     Color GenerateRandomColor(){
-        float t= Random.Range(1f,100f);
-        Color color = Color.HSVToRGB((t/100),1f,1f);
+        int t= Random.Range(0,colors.Length);
+        Color color;
+        ColorUtility.TryParseHtmlString(colors[t], out color);
         return color;
     }
 
@@ -274,8 +289,8 @@ public class GameManager : MonoBehaviour
 
         return values;
     }
-
-string[] ModifyValues(int questionIndex, int response){
+    /**
+    string[] ModifyValues(int questionIndex, int response){
         Dictionary<string, string> entry = questionData[questionIndex];
         string[] values = new string[4];
         Debug.Log("Respuesta: "+response);
@@ -314,6 +329,7 @@ string[] ModifyValues(int questionIndex, int response){
         sinews.ShowResources();
 
         return values;
+    }**/
 
     void CheckResources(){
         CheckInt();
@@ -322,7 +338,7 @@ string[] ModifyValues(int questionIndex, int response){
     }
 
     void CheckInt(){
-        int n = sinews.GetMadness();
+        int n = 0;//sinews.GetMadness();
         switch (n)
         {
             default:
@@ -331,8 +347,8 @@ string[] ModifyValues(int questionIndex, int response){
     }
 
     void CheckHapp(){
-        int n = sinews.GetMadness();
-        switch (sinews.GetHappines())
+        int n = 0;//sinews.GetMadness();
+        switch (n)
         {
             default:
             break;
@@ -340,7 +356,7 @@ string[] ModifyValues(int questionIndex, int response){
     }
 
     void CheckMad(){
-        int n = sinews.GetMadness();
+        int n = 0;//sinews.GetMadness();
         n= n/25;
         switch (n)
         {
@@ -354,9 +370,5 @@ string[] ModifyValues(int questionIndex, int response){
             break;
         }
     }
-
-
-
-
 
 }
