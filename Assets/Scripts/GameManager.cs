@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour
 
     Resources sinews;
 
+    private string nombreSecta;
+
     private void Awake() {
         sinews = FindObjectOfType<Resources>();
     }
@@ -213,6 +215,13 @@ public class GameManager : MonoBehaviour
         ObjetoContenidos.GetComponent<RefreshHeighttByContent>().ChangePositionY();
 
 
+    }
+
+    public void IntroducirNombreSecta(GameObject inputField)
+    {
+        TMP_InputField ifComp = inputField.GetComponent<TMP_InputField>();
+        nombreSecta = ifComp.text;
+        ifComp.interactable = false;
     }
 
 string[] ModifyValues(int questionIndex, int response){
