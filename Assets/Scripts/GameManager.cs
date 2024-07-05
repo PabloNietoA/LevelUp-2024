@@ -221,7 +221,7 @@ public class GameManager : MonoBehaviour
     {
         TMP_InputField ifComp = inputField.GetComponent<TMP_InputField>();
         nombreSecta = ifComp.text;
-        ifComp.interactable = false;
+        if (nombreSecta != "") ifComp.enabled = false;
     }
 
 string[] ModifyValues(int questionIndex, int response){
