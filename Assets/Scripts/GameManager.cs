@@ -233,38 +233,40 @@ public class GameManager : MonoBehaviour
         nombreSecta = ifComp.text;
         ifComp.interactable = false;
     }
-    
+
     string[] ModifyValues(int questionIndex, int response){
         Dictionary<string, string> entry = questionData[questionIndex];
-        string[] values = new string[3];
+        string[] values = new string[4];
         Debug.Log("Respuesta: "+response);
         Debug.Log("OK");
         if(response == 1){
             Debug.Log("OKKKKKK");
             //Valores de la Respuesta 1
-            values[0] = entry["ValorF1"];
-            values[1] = entry["ValorL1"];
-            values[2] = entry["ValorI1"];
-            //values[3] = entry["ValorA1"];
+            values[0] = entry["FelicidadResp1"];
+            values[1] = entry["LocR1"];
+            values[2] = entry["IntR1"];
+            values[3] = entry["VarMiem1"];
+            if (values[3] == "") values[3] = "0";
 
             //return values;
         }else if(response == 2){
             Debug.Log("Noooooo");
             //Valores de la Respuesta 2
-            values[0] = entry["ValorF2"];
-            values[1] = entry["ValorL2"];
-            values[2] = entry["ValorI2"];
-            //values[3] = entry["ValorA1"];
-
+            values[0] = entry["FelicidadResp2"];
+            values[1] = entry["LocR2"];
+            values[2] = entry["IntR2"];
+            values[3] = entry["VarMiem2"];
+            if (values[3] == "") values[3] = "0";
             //return values;
-        }else{
+        }
+        else{
             Debug.Log("yeyeyeyeye");
             //Valores de Respuesta Random
-            values[0] = entry["ValorF1"];
-            values[1] = entry["ValorL2"];
-            values[2] = entry["ValorI2"];
-            //values[3] = entry["ValorA1"];
-
+            values[0] = entry["FelicidadResp1"];
+            values[1] = entry["LocR2"];
+            values[2] = entry["IntR2"];
+            values[3] = entry["VarMiem1"];
+            if (values[3] == "") values[3] = "0";
             //return values;
         }
         sinews.ModifyResource(values);
