@@ -19,6 +19,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject ContenidoMensajesEsbirros;
     [SerializeField] private GameObject ContenidoMensajesNuestros;
 
+    [Header("Recursos")]
+
+    [SerializeField] private GameObject RecursoLocura;
+    [SerializeField] private GameObject RecursoIntel;
+    [SerializeField] private GameObject RecursoFelicidad;
+
+
+    [Header("Idioma")]
+
+    [SerializeField] private string idioma = "ESP"; //ESP ENG CAT
+
     //Guardar el dato de la pregunta encontrada
     private int NumeroPregunta=0;
 
@@ -31,8 +42,6 @@ public class GameManager : MonoBehaviour
     string answerText1;
     string answerText2;
 
-
-    public string idioma = "ESP"; //ESP ENG CAT
     private int questionIndex;
 
     Resources sinews;
@@ -44,6 +53,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sinews.SetResourceIcons(RecursoLocura, RecursoIntel, RecursoFelicidad);
         LoadCSV();
         questionIndex = GetLine();
         //LoadCSVLine(questionIndex);
