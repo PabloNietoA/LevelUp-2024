@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject RespuestaPrefab;
 
     [Header("Canvas donde instanciar")]
-    
+
     [SerializeField] private GameObject ObjetoContenidos;
     [SerializeField] private GameObject ContenidoMensajesEsbirros;
     [SerializeField] private GameObject ContenidoMensajesNuestros;
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
         ObjetoContenidos = GameObject.FindGameObjectWithTag("Content");
     }
 
-    // Update is called once per frame   
+    // Update is called once per frame
     void Update()
     {
 
@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
         return Random.Range(1,questionData.Count);
     }
 
-    
+
     /*
     Numero random para coger pregunta random del csv
     Coger este texto para meterselo a la pregunta instanciada
@@ -210,8 +210,8 @@ public class GameManager : MonoBehaviour
             ObjetoTemporal.GetComponentInChildren<TMP_Text>().text = answerText1;
         }else{
             ObjetoTemporal.GetComponentInChildren<TMP_Text>().text = answerText2;
-        }           
-        
+        }
+
 
         ModifyValues(questionIndex,numeroRespuesta);
         questionIndex = GetLine();
@@ -232,6 +232,45 @@ public class GameManager : MonoBehaviour
         TMP_InputField ifComp = inputField.GetComponent<TMP_InputField>();
         nombreSecta = ifComp.text;
         ifComp.interactable = false;
+    }
+    
+    string[] ModifyValues(int questionIndex, int response){
+        Dictionary<string, string> entry = questionData[questionIndex];
+        string[] values = new string[3];
+        Debug.Log("Respuesta: "+response);
+        Debug.Log("OK");
+        if(response == 1){
+            Debug.Log("OKKKKKK");
+            //Valores de la Respuesta 1
+            values[0] = entry["ValorF1"];
+            values[1] = entry["ValorL1"];
+            values[2] = entry["ValorI1"];
+            //values[3] = entry["ValorA1"];
+
+            //return values;
+        }else if(response == 2){
+            Debug.Log("Noooooo");
+            //Valores de la Respuesta 2
+            values[0] = entry["ValorF2"];
+            values[1] = entry["ValorL2"];
+            values[2] = entry["ValorI2"];
+            //values[3] = entry["ValorA1"];
+
+            //return values;
+        }else{
+            Debug.Log("yeyeyeyeye");
+            //Valores de Respuesta Random
+            values[0] = entry["ValorF1"];
+            values[1] = entry["ValorL2"];
+            values[2] = entry["ValorI2"];
+            //values[3] = entry["ValorA1"];
+
+            //return values;
+        }
+        sinews.ModifyResource(values);
+        sinews.ShowResources();
+
+        return values;
     }
 
 string[] ModifyValues(int questionIndex, int response){
@@ -273,11 +312,46 @@ string[] ModifyValues(int questionIndex, int response){
         sinews.ShowResources();
 
         return values;
+
+    void CheckResources(){
+        CheckInt();
+        CheckMad();
+        CheckHapp();
     }
 
+    void CheckInt(){
+        int n = sinews.GetMadness();
+        switch (n)
+        {
+            default:
+            break;
+        }
+    }
 
+    void CheckHapp(){
+        int n = sinews.GetMadness();
+        switch (sinews.GetHappines())
+        {
+            default:
+            break;
+        }
+    }
 
-
+    void CheckMad(){
+        int n = sinews.GetMadness();
+        n= n/25;
+        switch (n)
+        {
+            case  1:
+            break;
+            case  2:
+            break;
+            case  3:
+            break;
+            case  4:
+            break;
+        }
+    }
 
 
 
