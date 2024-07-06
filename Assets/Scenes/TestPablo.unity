@@ -1131,8 +1131,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11.528, y: 0}
-  m_SizeDelta: {x: 1924.2, y: 0}
+  m_AnchoredPosition: {x: -25.0121, y: 0}
+  m_SizeDelta: {x: 1897.2317, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &934942979
 MonoBehaviour:
@@ -1515,8 +1515,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 19, y: 0}
-  m_SizeDelta: {x: 1901.1, y: 940.7161}
+  m_AnchoredPosition: {x: 12.686008, y: 0.00061035}
+  m_SizeDelta: {x: 1855.7179, y: 917.48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1491047551
 MonoBehaviour:
@@ -1956,7 +1956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ContentMaster: {fileID: 2004778859}
   ContentChild: {fileID: 1155647553}
-  CantidadDeSuma: 200
+  CantidadDeSuma: 167
 --- !u!114 &2004778862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2089,6 +2089,7 @@ MonoBehaviour:
   RecursoIntel: {fileID: 1725300706}
   RecursoFelicidad: {fileID: 56650682}
   idioma: ESP
+  tiempoEntrePreguntas: 0.75
 --- !u!4 &7627999801667490561
 Transform:
   m_ObjectHideFlags: 0
