@@ -15,10 +15,25 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject RespuestaPrefab;
 
     [Header("Canvas donde instanciar")]
-    
+
     [SerializeField] private GameObject ObjetoContenidos;
     [SerializeField] private GameObject ContenidoMensajesEsbirros;
     [SerializeField] private GameObject ContenidoMensajesNuestros;
+
+    [Header("Recursos")]
+
+    [SerializeField] private GameObject RecursoLocura;
+    [SerializeField] private GameObject RecursoIntel;
+    [SerializeField] private GameObject RecursoFelicidad;
+
+    [Header("Color&Images Esbirros")]
+    private string[] colors = {"#b3a1d4","#c0baf7","#e1bc93","#abc7e6","#ca89c8","#9ec29f"};
+    private Sprite[] colorsimages;
+    private Sprite[] images;
+
+    [Header("Idioma")]
+
+    [SerializeField] private string idioma = "ESP"; //ESP ENG CAT
 
     //Guardar el dato de la pregunta encontrada
     private int NumeroPregunta=0;
@@ -36,6 +51,8 @@ public class GameManager : MonoBehaviour
 
     Resources sinews;
 
+    private string nombreSecta;
+
     private void Awake() {
         sinews = FindObjectOfType<Resources>();
     }
@@ -43,29 +60,50 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sinews.SetResourceIcons(RecursoLocura, RecursoIntel, RecursoFelicidad);
         LoadCSV();
+        LoadMembersImage();
         questionIndex = GetLine();
         //LoadCSVLine(questionIndex);
         GenerarPreguntaYRespuestas();
         ObjetoContenidos = GameObject.FindGameObjectWithTag("Content");
     }
 
-    // Update is called once per frame   
+    // Update is called once per frame
     void Update()
     {
 
     }
 
+    void LoadMembersImage (){
+        images = UnityEngine.Resources.LoadAll<Sprite>("Images");
+        colorsimages = UnityEngine.Resources.LoadAll<Sprite>("Background");
+    }
+
     //Funcion que cargara el CSV entero
     void LoadCSV (){
-        string filePath = Path.Combine(Application.dataPath,"archivo.csv");
-        if(File.Exists(filePath)){
+        string filePath;
+        if (idioma == "ESP")
+        {
+            filePath = Path.Combine(Application.dataPath + "/Textos", "ESP.tsv");
+        }
+        else if (idioma == "ENG")
+        {
+            filePath = Path.Combine(Application.dataPath + "/Textos", "ENG.tsv");
+        }
+        else if (idioma == "CAT")
+        {
+            filePath = Path.Combine(Application.dataPath + "/Textos", "CAT.tsv");
+        }
+        else filePath = "";
+        if(File.Exists(filePath))
+        {
             string[] data = File.ReadAllLines(filePath);
-            keys = data[0].Split(",");
+            keys = data[0].Split("\t");
 
             for (int i = 1; i < data.Length; i++)
             {
-                string[] values = data[i].Split(",");
+                string[] values = data[i].Split("\t");
                 Dictionary<string,string> entry = new Dictionary<string,string>();
 
                 for (int j = 0; j < keys.Length; j++)
@@ -74,11 +112,11 @@ public class GameManager : MonoBehaviour
                 }
                 questionData.Add(entry);
             }
-        }else
+        }
+        else
         {
             Debug.Log("No hay Archivo CSV");
         }
-
     }
 
     //Funcion que genera el index de la pregunta aleatoria
@@ -86,7 +124,7 @@ public class GameManager : MonoBehaviour
         return Random.Range(1,questionData.Count);
     }
 
-    
+
     /*
     Numero random para coger pregunta random del csv
     Coger este texto para meterselo a la pregunta instanciada
@@ -115,7 +153,7 @@ public class GameManager : MonoBehaviour
     void ChargeNewMessage()
     {
         Dictionary<string, string> entry = questionData[questionIndex];
-        questionText = entry["Pregunta"];
+        questionText = entry["Eventos"];
     }
 
     void ChargeAnswers()
@@ -123,10 +161,11 @@ public class GameManager : MonoBehaviour
         Dictionary<string, string> entry = questionData[questionIndex];
         shortAnswerText1 = entry["Respuesta1"];
         shortAnswerText2 = entry["Respuesta2"];
-        answerText1 = entry["Respuesta1"];
-        answerText2 = entry["Respuesta2"];
+        answerText1 = entry["CortoR1"];
+        if (answerText1 == "") answerText1 = entry["Respuesta1"];
+        answerText2 = entry["CortoR2"];
+        if (answerText2 == "") answerText2 = entry["Respuesta2"];
     }
-
 
     void GenerarPreguntaYRespuestas()
     {
@@ -137,9 +176,13 @@ public class GameManager : MonoBehaviour
         //Esbirro
         GameObject ObjetoTemporal = Instantiate(EsbirroMensajePrefab);//texto (Aun queda por cambiar el texto, se cambia siguiente a este)
         ObjetoTemporal.transform.parent = ContenidoMensajesEsbirros.transform;
-        Image aux = ObjetoTemporal.GetComponentInChildren<Image>();
+        Image[] aux = ObjetoTemporal.GetComponentsInChildren<Image>();
         Color color = GenerateRandomColor();
-        aux.color = color;
+        //aux[0].color = color;
+        int imageNumber= Random.Range(0,colorsimages.Length);
+        aux[0].sprite = colorsimages[imageNumber];
+        imageNumber= Random.Range(0,images.Length);
+        aux[2].sprite = images[imageNumber];
         ObjetoTemporal.GetComponentInChildren<TMP_Text>().text = questionText;
 
         ObjetoTemporal = Instantiate(EsbirroMensajeVacioPrefab); //Vacio
@@ -159,8 +202,9 @@ public class GameManager : MonoBehaviour
     }
 
     Color GenerateRandomColor(){
-        float t= Random.Range(1f,100f);
-        Color color = Color.HSVToRGB((t/100),1f,1f);
+        int t= Random.Range(0,colors.Length);
+        Color color;
+        ColorUtility.TryParseHtmlString(colors[t], out color);
         return color;
     }
 
@@ -181,8 +225,8 @@ public class GameManager : MonoBehaviour
             ObjetoTemporal.GetComponentInChildren<TMP_Text>().text = answerText1;
         }else{
             ObjetoTemporal.GetComponentInChildren<TMP_Text>().text = answerText2;
-        }           
-        
+        }
+
 
         ModifyValues(questionIndex,numeroRespuesta);
         questionIndex = GetLine();
@@ -198,37 +242,46 @@ public class GameManager : MonoBehaviour
 
     }
 
-string[] ModifyValues(int questionIndex, int response){
+    public void IntroducirNombreSecta(GameObject inputField)
+    {
+        TMP_InputField ifComp = inputField.GetComponent<TMP_InputField>();
+        nombreSecta = ifComp.text;
+        ifComp.interactable = false;
+    }
+
+    string[] ModifyValues(int questionIndex, int response){
         Dictionary<string, string> entry = questionData[questionIndex];
-        string[] values = new string[3];
+        string[] values = new string[4];
         Debug.Log("Respuesta: "+response);
         Debug.Log("OK");
         if(response == 1){
             Debug.Log("OKKKKKK");
             //Valores de la Respuesta 1
-            values[0] = entry["ValorF1"];
-            values[1] = entry["ValorL1"];
-            values[2] = entry["ValorI1"];
-            //values[3] = entry["ValorA1"];
+            values[0] = entry["FelicidadResp1"];
+            values[1] = entry["LocR1"];
+            values[2] = entry["IntR1"];
+            values[3] = entry["VarMiem1"];
+            if (values[3] == "") values[3] = "0";
 
             //return values;
         }else if(response == 2){
             Debug.Log("Noooooo");
             //Valores de la Respuesta 2
-            values[0] = entry["ValorF2"];
-            values[1] = entry["ValorL2"];
-            values[2] = entry["ValorI2"];
-            //values[3] = entry["ValorA1"];
-            
+            values[0] = entry["FelicidadResp2"];
+            values[1] = entry["LocR2"];
+            values[2] = entry["IntR2"];
+            values[3] = entry["VarMiem2"];
+            if (values[3] == "") values[3] = "0";
             //return values;
-        }else{
+        }
+        else{
             Debug.Log("yeyeyeyeye");
             //Valores de Respuesta Random
-            values[0] = entry["ValorF1"];
-            values[1] = entry["ValorL2"];
-            values[2] = entry["ValorI2"];
-            //values[3] = entry["ValorA1"];
-
+            values[0] = entry["FelicidadResp1"];
+            values[1] = entry["LocR2"];
+            values[2] = entry["IntR2"];
+            values[3] = entry["VarMiem1"];
+            if (values[3] == "") values[3] = "0";
             //return values;
         }
         sinews.ModifyResource(values);
@@ -236,13 +289,86 @@ string[] ModifyValues(int questionIndex, int response){
 
         return values;
     }
+    /**
+    string[] ModifyValues(int questionIndex, int response){
+        Dictionary<string, string> entry = questionData[questionIndex];
+        string[] values = new string[4];
+        Debug.Log("Respuesta: "+response);
+        Debug.Log("OK");
+        if(response == 1){
+            Debug.Log("OKKKKKK");
+            //Valores de la Respuesta 1
+            values[0] = entry["FelicidadResp1"];
+            values[1] = entry["LocR1"];
+            values[2] = entry["IntR1"];
+            values[3] = entry["VarMiem1"];
+            if (values[3] == "") values[3] = "0";
 
+            //return values;
+        }else if(response == 2){
+            Debug.Log("Noooooo");
+            //Valores de la Respuesta 2
+            values[0] = entry["FelicidadResp2"];
+            values[1] = entry["LocR2"];
+            values[2] = entry["IntR2"];
+            values[3] = entry["VarMiem2"];
+            if (values[3] == "") values[3] = "0";
+            //return values;
+        }
+        else{
+            Debug.Log("yeyeyeyeye");
+            //Valores de Respuesta Random
+            values[0] = entry["FelicidadResp1"];
+            values[1] = entry["LocR2"];
+            values[2] = entry["IntR2"];
+            values[3] = entry["VarMiem1"];
+            if (values[3] == "") values[3] = "0";
+            //return values;
+        }
+        sinews.ModifyResource(values);
+        sinews.ShowResources();
 
+        return values;
+    }**/
 
+    void CheckResources(){
+        CheckInt();
+        CheckMad();
+        CheckHapp();
+    }
 
+    void CheckInt(){
+        int n = 0;//sinews.GetMadness();
+        switch (n)
+        {
+            default:
+            break;
+        }
+    }
 
+    void CheckHapp(){
+        int n = 0;//sinews.GetMadness();
+        switch (n)
+        {
+            default:
+            break;
+        }
+    }
 
-
-
+    void CheckMad(){
+        int n = 0;//sinews.GetMadness();
+        n= n/25;
+        switch (n)
+        {
+            case  1:
+            break;
+            case  2:
+            break;
+            case  3:
+            break;
+            case  4:
+            break;
+        }
+    }
 
 }

@@ -1,0 +1,91 @@
+Eventos	Respuesta1	CortoR1	Respuesta2	CortoR2	IntR1	IntR2	LocR1	LocR2	VarMiem1	VarMiem2	ComodínR1	ComodínR2	FelicidadResp1	FelicidadResp2
+Cómo deberíamos iniciar a los nuevos miembros?	Cortémosles los meñiques.		Celebremos una reunión informativa.		0	-5	10	5					-5	0
+Hemos pillado a dos aprendices llevando mal el uniforme. ¿Cómo les castigamos?	Quemémoslos en la hoguera.		Obliguémoslos a ir desnudos.		5	0	10	0					-10	5
+Hemos oído que un youtuber tiene interés por nuestra secta. No sabemos sus intenciones. ¿Qué hacemos?	Llamad al sicario, no podrá perjudicar nuestra misión.	Llamad al sicario.	Invitémosle.		0	5	10	-5					0	5
+Parece que una enfermedad está llevandose a muchos de los nuestros. ¿Deberíamos hacer algo?	Que sobrevivan aquellos dignos de la salvación.	Que sobrevivan solos.	Id al boticario, necesitaremos drogas.		5	-5	5	5					-5	0
+Hemos escuchado que algunos miembros están teniendo descendencia sin tu consentimiento. ¿Qué hacemos?	¡¡Blasfemia!!		Bienvenidos sean nuevos miembros.		0	0	5	-5		3			-5	5
+Se ha rebelado un grupo de la secta y ahora se quieren ir. ¿Les dejamos?	Es hora de la caza.		Debemos capturarlos.		-5	0	10	5					0	0
+Estamos observando que algunos miembros están entrando en depresión. ¿Que hacemos?	Podemos organizar una sesión terapéutica.		Déjales, se les pasará.		-5	5	-5	5					10	-10
+Oye, Pekta quiere ver a su abuela, pero sabemos que está prohibido, ¿qué opinas, deberíamos dejarle ir?	No, ya sabéis que necesitamos cortar todos los lazos que nos separen de la verdad.	No se puede.	Vale, pero que nos traiga galletas.		-5	0	5	-5					-5	5
+Deberíamos permitir la flagelación?	Solo si lo disfrutan.		Servirá para que aprendan lecciones.		0	5	0	10					5	-10
+Deberíamos dejar q la gente se tatúe?	Si es con marcas de nuestra comunidad, cualquier tatuaje es bienvenido. 	Sí, un tatuaje nuestro.	No deben tatuarse, generará rebeldía entre los miembros.	No deben tatuarse.	-5	0	5	0					5	-5
+Deberíamos permitir a los hombres lobo?	¿A los hombres muy peludos? claro, todos son bienvenidos.	Que vengan todos los peludos.	Obviamente no, nuestra comunidad es solo para humanos.	Obviamente no.	-5	0	5	-5					5	-5
+Deberíamos dar bolígrafos conmemorativos?	Buena idea, generará una mayor sensación de comunidad.	Buena idea.	No, mejor no gastar recursos en esas tonterías.		-5	0	5	0					5	-5
+Podemos hacer una página web para captar nuevos miembros?	No, solo podemos determinar la aptitud de nuestros seguidores en persona.	Nada de presencia en internet.	Claro, tener una presencia online hará que nuestro mensaje llegue a muchas más personas.	Sí, la presencia online es importante.	0	10	0	5					0	5
+Se ha quemado la casa de uno de los nuevos	Reubicadlo.		Quemadle también.		-5	10	0	10		-1			5	-10
+Hemos tenido una buena cosecha.	Celebremos una fiesta ostentosa.		Celebremos una fiesta moderada.		-5	-5	10	5					10	5
+Nos queda poca comida y hay miembros que empiezan a quejarse. ¿Qué hacemos?	¡Que empiecen los juegos del hambre!		Sacrificaremos a nuestro miembro más anciano.		10	0	10	5					-10	-5
+Se ha infiltrado un vampiro entre nosotros.	SUS ඞ		Genial, podrá ayudarnos a recolectar sangre para las ofrendas.	Que nos ayude a recolectar sangre.	0	5	0	10					10	-5
+Algunos miembros dicen que la comunidad no se toma en serio su misión, ¿qué les decimos?	La misión se encuentra en el interior de cada uno, solo necesitan seguirme para no desviarse.	Que me sigan y lo descubran.	Creemos más actividades destinadas a encontrar una misión.	Creemos más actividades.	5	-10	0	10					-5	5
+Creemos que dormir de pie puede llevar a una mayor claridad espiritual, ¿deberíamos probarlo?	Sí, pero ataos a las paredes para no cambiar de postura dormidos.	Me parece bien.	Haced que sea haciendo el pino.		0	5	5	10					-5	-10
+Nos gustaría tener una de estas mascotas, ¿cuál podríamos tener?	Un perro.		Mosquitos.		-5	5	5	10					10	-10
+Creemos que vendría bien para el estado de ánimo de la comunidad tener una de estas mascotas, ¿cuál podemos tener?	Un gato.		Sanguijuelas.		-5	5	5	10					10	-10
+Sentimos que sería necesario realizar algún acto de fe para asegurar la fidelidad de los seguidores.	Hoy celebraremos un evento en el que tengan que andar sobre un suelo con piedras ardiendo.	Que anden sobre piedras ardiendo.	Reúnan a todos los miembros para aguantar 2 minutos bajo nuestra agua bendita.	A soportar sumergidos bajo agua bendita.	5	0	10	10		-1			-5	-5
+¿Podríamos reunirnos cada noche para bailar bajo la luz de la luna?	Sería una actividad perfecta para unir al grupo y conectar nuestras energías.	Perfecto.	No podéis hacer eso, no somos salvajes.		-5	0	10	-5					10	-10
+El grupo se siente un poco decaído, ¿podríamos proyectar una película esta noche?	Que sea una de las de nuestra librería conjunta.	Sí, pero que sea nuestra.	¿Acaso no les motiva nuestro propósito?		0	0	5	0					10	-10
+Lupus y Maki se quieren casar, ¿darás tu bendición?	Por supuesto, son la pareja perfecta.		No están preparados todavía.		-10	5	5	0					10	-5
+Algunos miembros del equipo piensan que deberíamos quemar casas para ofrecer a los supervivientes vivir con nosotros y unirse a la comunidad.	Buena idea, les pillaríamos en su momento de mayor necesidad.	Buena idea.	No, no es lo correcto.		-5	-5	10	-10					0	5
+Varios pensamos que deberíamos establecer como una regla oficial reconocer que la tierra es plana.	No haremos eso porque no es así.		Me parece bien, si los filósofos pueden elegir qué es verdad y qué no, nosotros también.	Sí, lo elegimos como verdad.	0	-5	-5	10					-5	5
+Necesitamos más actividades para unificar al grupo, ¿qué deberíamos hacer?	Realizaremos sesiones de meditación.		Vayamos a un parque de atracciones.		0	-10	5	10					0	10
+¿Necesitas algo?	Pedidles al resto de los miembros que me traigan sus ofrendas.	Las ofrendas.	Sí, necesito un masaje ahora.		0	5	5	10					0	-5
+Hemos observado que algunos de los miembros no han realizado sus ofrendas, ¿qué deberíamos hacer?	Expulsadles de la comunidad.		Encerradles durante unos días para que aprendan la lección.	Encerrados aprenderán la lección.	0	0	5	5					-5	5
+Algunos miembros quieren realizar sacrificios para mostrar su lealtad, ¿les dejamos?	Se permite cualquier sacrificio que se realice por y para nuestra comunidad.	Lo permitiré.	No, estarían matando sin un sentido.		5	-10	10	-10					5	-5
+¿Podemos leer este libro? ¿Es acorde a nuestras creencias?	No, todos los libros del exterior están prohibidos.		Creo que es lo suficientemente similar, está bien.	Es acorde, adelante.	-10	10	10	-5					-5	5
+Entre los fieles, tenemos una duda que no nos deja dormir por las noches. ¿Qué vino antes, el huevo o la gallina?	El huevo.		La gallina.		0	0	5	10					-5	-10
+Mikus y Loru han perdido su fe, ¿qué debemos hacer?	Sacrificadles para darles una lección a los demás sobre lo que ocurre cuando te desvías.	Sacrificadles.	Dejadles ir.		5	-5	10	5	-2				-10	0
+Está surgiendo en nuestra comunidad un gusto por la naturaleza, ¿deberíamos cultivar plantas?	Sí, será bueno que cultiven su sensación de responsabilidad y conexión con la naturaleza.	Sí, les vendrá bien.	Tengo alergia al polen, no seáis desconsiderados.		-10	0	5	0			1		10	-10
+¿Deberíamos mandarles tareas a los miembros?	Les vendría bien realizar tareas de limpieza y del cuidado del hogar.	Sí, que limpien nuestro hogar.	Sí, que salgan en busca de donativos.		-5	-5	5	5					-5	5
+¿Invitamos a más miembros para vivir con nosotros?	Sí, cuantos más vivamos bajo el mismo techo más progreso haremos.	Sí, cuantos más mejor.	No, que tomen la iniciativa ellos.		-10	0	10	0					5	-5
+Algunos miembros han sugerido que demos "saltitos a la pata coja en corro" para divertirnos, ¿lo hacemos?	Claro que sí, revivid vuestra infancia.		No, tenéis otras cosas más importantes que hacer, ya no sois niños.	No, no seais infantiles.	-5	0	5	5					5	-5
+Hemos visto que hay mucha gente sin techo por la ciudad, ¿deberíamos invitarles a unirse?	Sí, cuantos más miembros mejor.		No, no son los elegidos.		-5	0	5	10					5	-5
+Queríamos establecer una reunión para jugar a juegos de mesa, ¿lo apruebas?	Sí, os vendrá bien una distracción.		No, a trabajar.		-5	5	5	5					10	-5
+Gika robó a su vecina, ¿la castigamos?	No, probablemente tenía un motivo.		Claro, eso no está bien.		5	-5	5	-5					-5	5
+Nos gustaría hacer más platos de spaghetti, ¿t apetece?	Ñam ñam spaghetti, claro claro.		La verdad que no soy fan. 		-5	0	5	0					5	-5
+¿Te gustó nuestra tarta de chocolate?	Sí, deberíais hacer más.		Mejor regaladme dinero la siguiente vez.	Prefiero dinero.	-5	5	5	0					5	-5
+Hay muchos niños huérfanos, quizás los podamos salvar.	Rescatad a todos los que podáis, pero que no os pillen los centros.	Hacedlo, rescatadles.	Serían demasiados niños, mejor no.		-10	0	10	0	15				10	-5
+Hemos pensado en infiltrarnos en empresas para adoctrinar a los empleados, ¿nos das permiso?	Confío en vosotros.		Es una tarea demasiado compleja.		-5	0	10	0	5			1	10	-5
+Podemos quedar en una piscina y llevar helados para todo el mundo?	Será divertido, dejadme el helado de vainilla.		Estamos en invierno mendrugos. 		-10	0	10	-5					10	-5
+Deberíamos reunirnos los viernes para tomar pizza y plantear debates.	Me apunto.		Creo que mejor meditamos.		10	-5	5	10					10	5
+¿Deberíamos pedir dinero a los miembros?	Sí, todo lo que puedan aportar deben aportarlo.		No lo necesitamos por ahora.		0	0	5	0					-5	0
+¿Deberíamos salir a recaudar dinero?	Sí. Y difundid nuestro mensaje, cuantos más nos apoyen mejor.	Sí. Y difundid nuestro mensaje.	De hecho, como acto de fe, os ordeno robarlo.	Sí, pero robadlo.	0	5	5	10					5	0
+Creemos que sería buena idea robar un banco, ¿podemos?	¿Qué os creéis, la Secta de Papel? Bajad de las nubes y recaudad dinero bien.	¿Qué os creéis, la Secta de Papel?	Confío en vosotros, pero si os pillan no trabajáis para mí.	Adelante.	-5	0	-5	10					-5	5
+¿Podemos escribir poesía?	Es una forma perfecta de explorar vuestro subconsciente.	Sí, os vendrá bien.	¿Quién os creéis, Shakespeare? Jaja.	¿Quién os creéis, Shakespeare?	0	0	5	-5					10	-5
+¿Podemos estudiar historia?	La historia está formada por muchas mentiras que no os podéis permitir creer.	No, es todo una mentira.	Bien, os daré clases para enseñárosla.	Bien, os la enseñaré yo.	-5	-10	5	10				1	-5	5
+Hemos pensado en pintar cuadros para poder venderlos y recaudar dinero para la comunidad, ¿qué te parece?	Me parece perfecto.		Vale, pero buscad gente con talento.		-5	5	5	-5					10	-10
+Deberíamos realizar reuniones para enseñar nuestras bases y cultura a los nuevos integrantes?	Sí, es importante que estén informados.		¿Acaso no sirven mis explicaciones?		0	0	5	0					5	0
+Nos apetece jugar a la rayuela, ¿podemos?	Sí, podéis hacerlo en nuestro jardín.		No, no es una actividad productiva.		-5	0	5	0					5	-5
+Entre los miembros hemos hablado de organizar una competición de deportes anual, exclusiva de nuestra comunidad. ¿Nos lo apruebas?	Podría ser divertido. Si podéis invitar a personas de fuera incluso mejor, y tal vez conseguimos que se unan.	Podría ser divertido.	No creo que el deporte nos ayude a cumplir nuestros objetivos.	No creo que el deporte ayude.	5	0	5	0					10	-5
+¿Te parece bien que intentemos salvar a los estudiantes universitarios del sistema educativo y de la sociedad actual?	Sí, es más fácil convencerles en esta etapa de su vida.	Sí, son perfectos.	Sí, traedles aunque se resistan. Les reformaremos.	Sí, traedles aunque se resistan.	0	0	5	10					5	0
+Queremos realizar un ritual para invocar a un ente poderoso y que nos guíe de cara al futuro. Pero, a cambio, necesitamos sacrificar a uno de nuestros miembros. ¿Podemos?	Sí, todo sacrificio por el bien de nuestra comunidad es bienvenido.	Sí, es un acto necesario.	No merece la pena.		5	-5	10	-5	-1				5	-5
+Podemos crearnos un canal de Yutub para dar visibilidad a nuestra comunidad y conseguir más miembros?	Mientras que ayude a llegar a más futuros posibles miembros, me parece genial.	Me parece genial.	No podemos meternos en las redes sociales, es demasiado peligroso.	No podemos meternos en las rrss.	5	-5	-5	5					5	-5
+Algunos miembros manifestaron que querían "invocar el espíritu del cuñado definitivo para que explique qué invertir en bolsa", ¿les dejas?	Claro, es importante conocer ese tema.		No es su propósito hacer eso.		-5	0	5	0					5	-5
+Hemos decidido que nos gustaría tener una sesión espiritista para reencontrarnos con ex-miembros que se han sacrificado por nuestra comunidad.	Estaría bien poder volver a conectar con ellos.		Deberíamos dejarles decascansar, les vamos a ver pronto de todas maneras.	Mejor no.	-5	0	5	5					5	-5
+Algunos miembros quieren estafar abuelitas por llamada como prueba de lealtad. ¿Crees que está bien?	Eso es peor que muchas de las otras cosas que hemos hecho, no.	No.	Definitivamente creo que demostraría de lo que son capaces.	Demostrará su lealtad, sí.	-10	5	-5	10					-5	-5
+Hemos creado un baile para celebrar la lluvia durante los días que llueva, ¿podemos hacerlo?	Claro, es un buen modo de unir la comunidad.		No me gusta la idea.		-5	0	5	0					10	-10
+¿Podemos ver anime?	Creo que os puede desviar de la realidad que estamos construyendo. Es demasiado fantasioso.	Creo que no os viene bien.	¡Sí! Yo también quiero.		0	5	0	10					-5	10
+¿Qué juego hizo Willyrex?	¡¡QUÉ JUEGO HIZO WILLYREX!!		No sé de qué me hablas. Ponte a trabajar.		-5	5	5	-5					0	0
+Podemos especializarnos en el control del aire?	¿Creéis que la vida es una serie?		Alcanzad el límite de vuestras capacidades.		0	0	-5	10					-5	5
+Hemos pensado en crear retos para que los fieles los puedan superar, ¿qué opinas de ver una peli dramática sin llorar en el intento?	Creo que definitivamente será un reto difícil.		Deberíamos poner retos más duros.		0	0	0	5			1		5	0
+Podríamos crear un videojuego para adoctrinar a más gente.	Sí, están muy de moda en la sociedad actual, podríamos mostrarles nuestros mensajes.	Sí, están bastante de moda hoy en día.	No va dar tiempo, se aproxima el fin del mundo.		-5	5	5	0					10	-10
+Varios fieles piensan que los valores de lealtad no se están enseñando de forma correcta.	Que confíen en el proceso, lo acabarán entendiendo.		Bueno, pues enseñadles lo que habéis aprendido los más fieles.	Enseñádselo entonces.	0	-5	5	10					0	10
+Creemos que deberíamos sacrificar a nuestro peluches más preciados para transmitir más de nuestras energías en esta comunidad.	Definitivamente son objetos preciados que beneficiará a las energías de la comunidad.	Definitivamente nos beneficiará.	Creo que los sacrificios deberían ser de seres vivos.	Deberían ser seres vivos.	0	5	5	10					-5	0
+Deberíamos crear anuncios para promocionar nuestra comunidad?	Todas las formas en las que podamos propagar nuestro mensaje son bienvenidas.	Sí, vendrá bien.	Mejor no, trabajemos más en mejoras de la comunidad por ahora.	Mejor no.	0	0	5	5					5	5
+Uno de nuestros miembros está resfriado, ¿qué deberíamos hacer al respecto?	Podríais ponerle una almohada encima de la cabeza.	 Ponedle una almohada encima de la cabeza.	Dadle la medicina adecuada.		5	-5	10	-5	-1				-5	5
+¿Deberíamos difundir el mensaje de que las lechugas no son verdes?	Definitivamente. Ayudaría a que la gente piense más allá de las reglas de la sociedad.		No, es verde y punto.		-5	0	10	-5					5	5
+¿Las bolas de tenis son amarillas o verdes?	Amarillas.		Verdes.		0	0	5	5					-5	-5
+¿Deberíamos colar nuestros libros en librerías y colegios?	Me parece perfecto. Más personas necesitan conocer nuestra comunidad,	Me parece perfecto.	Sí, y colad información e imágenes sobre nosotros en otros libros.	Sí y meted info nuestra en libros.	0	0	5	10					5	5
+¿Podemos crear un idioma?	NECESITAMOS crear un idioma.		No nos serviría de nada.		-5	0	5	-5					10	-5
+¿Qué tareas deberíamos hacer?	Reclutad más miembros.		Obtened medicamentos y comida.		0	-5	5	0	10				-5	5
+Difundamos la palabra de que las ranas son los dioses de los ríos.	Me parece bien.		No os lo autorizo.		0	-5	5	-5					10	-10
+Algunos quieren salir a discotecas, ¿está permitido?	Vale, pero que hablen bien de nosotros a sus amigos.		No, deberían desconectar sus lazos con la sociedad lo más posible.	Deben desconectar de la sociedad.	5	-5	-5	10					10	-10
+¿Podemos crear un saludo exclusivo para los miembros?	Definitivamente.		Obviamente sí.		-5	-5	10	10					10	10
+Varios miembros quieren robar coches y destruirlos para reducir la contaminación del mundo.	No veo por qué no.		Eso puede salir bastante mal.		-5	0	10	-5					5	-5
+Oye, el resto de miembros dicen que 2+2 es 5, ¿les creo?	Sí.		No.		-10	5	10	-10					0	0
+Lucius dice que quiere arriesgar su vida por la comunidad, ¿la dejamos?	Que realice un acto valiente y que las buenas energías le acompañen.	Sí, que sea valiente.	No podemos perder un miembro así. Que no lo haga.	No podemos perder un miembro así.	5	-5	10	-10	-1				-5	5
+Podríamos dedicar un día para manifestar intenciones para nuestro grupo?	Sí, vendrá bien para tener mejor suerte.		Mejor no, así no conseguiremos nada.		0	0	5	0					10	-10
+Creemos que es importante tener en cuenta que las aves son robots controlados por el gobierno, ¿estás de acuerdo?	Claro, mejor prevenir que curar. 		Estáis delulus, dejad de inventar teorías conspiranoicas.	No seais conspiranoicos.	-5	5	5	-5					-5	5
+Si alimentamos a una vaca con piña ¿le saldrá leche dulce?	Sí, hagámoslo.		Ni se te ocurra. No seas cerdo.		5	0	10	-5					5	-5
+Modoka quiere ser una chica mágica, ¿lo permites?	Claro, que se convierta en chica mágica.		Mejor no, Homora estaría triste.		0	0	5	0					10	-5
+¿Y si fusionamos a un niño con su perro?	Me captaste la atención, ¿qué podría salir mal?		Aléjate del niño.		10	0	10	-5					5	-5
+Deberíamos preparar una cena final para el fin del mundo?	Sí, preparen sus venenos.		Tenía pensado celebrarlo mediante un baile final.	Prefiero celebrarlo con un baile final.	5	0	10	5					5	10
+¿Hacemos un torneo y que el premio sea una armadura?	Pegasus Fantasy!!		No, debería ser un mejor premio.		-5	0	10	0					10	-5
