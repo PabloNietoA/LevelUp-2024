@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagment : MonoBehaviour
 {
+    
+
 
     public void ChangeSceneByName(string nombreEscena) 
     {
@@ -21,5 +23,7 @@ public class SceneManagment : MonoBehaviour
     {
         Application.Quit(); 
     }
+
+
 
 }
