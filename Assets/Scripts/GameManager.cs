@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject RespuestaPrefab;
 
     [Header("Canvas donde instanciar")]
-
+    [SerializeField] private GameObject canvasGame;
+    [SerializeField] private GameObject canvasResume;
     [SerializeField] private GameObject ObjetoContenidos;
     [SerializeField] private GameObject ContenidoMensajesEsbirros;
     [SerializeField] private GameObject ContenidoMensajesNuestros;
@@ -163,6 +164,7 @@ public class GameManager : MonoBehaviour
     {
         if(messageNumber == 5){
             CheckFinals();
+            FadeIn();
             Refresh();
             messageNumber = 0;
             day +=1;
@@ -312,6 +314,19 @@ public class GameManager : MonoBehaviour
             CheckAcolyte();
         }
     }
+
+    void FadeIn()
+    {
+        canvasGame.SetActive(false);
+        canvasResume.SetActive(true);
+    }
+
+    public void FadeOut()
+    {
+        canvasGame.SetActive(true);
+        canvasResume.SetActive(false);
+    }
+
     void Refresh(){
         foreach (Transform child in ContenidoMensajesEsbirros.transform)
         {
@@ -340,10 +355,10 @@ public class GameManager : MonoBehaviour
     }
         void CheckAcolyte(){
         if(sinews.GetAcolyte()==acolyteGoal){
-
+            SceneManager.LoadScene("Win");
         }
         else{
-
+            SceneManager.LoadScene("Lose");
         }
     }
     /**
