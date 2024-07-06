@@ -229,13 +229,6 @@ public class GameManager : MonoBehaviour
         return color;
     }
 
-    Color GenerateRandomColor(){
-        int t= Random.Range(0,colors.Length);
-        Color color;
-        ColorUtility.TryParseHtmlString(colors[t], out color);
-        return color;
-    }
-
 
     public void EliminarBotonesYGenerarTexto(int numeroRespuesta)
     {
