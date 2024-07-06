@@ -33,7 +33,10 @@ public class Resources : MonoBehaviour
         intelligence += intVar;
         intAnim.SetInteger("Increase", intVar);
 
+        AddAcolyte();
         acolytes += int.Parse(values[3]);
+
+        ModifyMaxMin();
 
         hapAnim.SetTrigger("TriggerAnim");
         madAnim.SetTrigger("TriggerAnim");
@@ -113,6 +116,10 @@ public class Resources : MonoBehaviour
         }
     }
 
+    void AddAcolyte(){
+        
+    }
+
     public void SetResourceIcons(GameObject mad, GameObject intel, GameObject hap)
     {
         MadIcon = mad;
@@ -120,7 +127,50 @@ public class Resources : MonoBehaviour
         HapIcon = hap;
     }
 
+    void ModifyMaxMin(){
+        if (happiness < 0)
+        {
+            happiness=0;
+        }
+        if (madness < 0)
+        {
+            madness= 0;
+        }
+        if (intelligence < 0)
+        {
+            intelligence = 0;
+        }
+
+        if (happiness > 100)
+        {
+            happiness=100;
+        }
+        if (madness >100)
+        {
+            madness= 100;
+        }
+        if (intelligence >100)
+        {
+            intelligence = 100;
+        }
+    }
     public void ShowResources(){
         Debug.Log("Int: "+intelligence+" Mad:"+madness+" Hap:"+happiness+" Acol: "+acolytes);
+    }
+
+    public int GetMadness(){
+        return madness;
+    }
+
+    public int GetIntelligence(){
+        return intelligence;
+    }
+
+    public int GetHappines(){
+        return happiness;
+    }
+
+    public int GetAcolyte(){
+        return acolytes;
     }
 }
