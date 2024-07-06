@@ -4,7 +4,6 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -38,6 +37,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private string idioma = "ESP"; //ESP ENG CAT
 
     [SerializeField] private float tiempoEntrePreguntas = 5f;
+
+    [SerializeField] private SceneManagment sceneManagmentObject;
+
 
     //Guardar el dato de la pregunta encontrada
     private int NumeroPregunta=0;
@@ -76,6 +78,8 @@ public class GameManager : MonoBehaviour
         //LoadCSVLine(questionIndex);
         StartCoroutine(GenerarPreguntaYRespuestas());
         ObjetoContenidos = GameObject.FindGameObjectWithTag("Content");
+
+
     }
 
     // Update is called once per frame
@@ -336,28 +340,31 @@ public class GameManager : MonoBehaviour
             Destroy(child.gameObject);
         }
     }
+
+    //Cambiar esto vic, no te pierdas
     void CheckMad(){
         if(sinews.GetMadness()==100){
-            SceneManager.LoadScene("Mad100");
+            sceneManagmentObject.ChangeSceneByName("Mad100");
         }
         if(sinews.GetMadness()==0){
-             SceneManager.LoadScene("Mad0");
+            sceneManagmentObject.ChangeSceneByName("Mad0");
         }
     }
-        void CheckInt(){
+    void CheckInt(){
         if(sinews.GetIntelligence()==100){
-             SceneManager.LoadScene("Int100");
+            sceneManagmentObject.ChangeSceneByName("Int100");
         }
         if(sinews.GetIntelligence()==0){
-             SceneManager.LoadScene("Int0");
+            sceneManagmentObject.ChangeSceneByName("Int0");
         }
     }
-        void CheckAcolyte(){
+    void CheckAcolyte(){
         if(sinews.GetAcolyte()==acolyteGoal){
-            SceneManager.LoadScene("Win");
+            sceneManagmentObject.ChangeSceneByName("Win");
         }
         else{
-            SceneManager.LoadScene("Lose");
+            sceneManagmentObject.ChangeSceneByName("Lose");
+     
         }
     }
     /**
