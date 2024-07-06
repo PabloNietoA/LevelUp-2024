@@ -134,7 +134,6 @@ public class GameManager : MonoBehaviour
         return Random.Range(1,questionData.Count);
     }
 
-
     /*
     Numero random para coger pregunta random del csv
     Coger este texto para meterselo a la pregunta instanciada
