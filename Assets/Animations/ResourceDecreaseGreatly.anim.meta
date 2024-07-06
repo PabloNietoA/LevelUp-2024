@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Animations/ResourceDecreaseGreatly.anim.meta
 guid: d906f04d941226842953613ede62f033
+========
+guid: 422447e52792b17429c3c2a7544ee2ae
+>>>>>>>> NewUI:Assets/Animations/ResourceDecrease.anim.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 7400000

@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private string idioma = "ESP"; //ESP ENG CAT
 
+    [SerializeField] private float tiempoEntrePreguntas = 5f;
+
     //Guardar el dato de la pregunta encontrada
     private int NumeroPregunta=0;
 
@@ -53,6 +55,8 @@ public class GameManager : MonoBehaviour
 
     private string nombreSecta;
 
+    private int numPreguntas = 0;
+
     private void Awake() {
         sinews = FindObjectOfType<Resources>();
     }
@@ -65,7 +69,7 @@ public class GameManager : MonoBehaviour
         LoadMembersImage();
         questionIndex = GetLine();
         //LoadCSVLine(questionIndex);
-        GenerarPreguntaYRespuestas();
+        StartCoroutine(GenerarPreguntaYRespuestas());
         ObjetoContenidos = GameObject.FindGameObjectWithTag("Content");
     }
 
@@ -167,11 +171,12 @@ public class GameManager : MonoBehaviour
         if (answerText2 == "") answerText2 = entry["Respuesta2"];
     }
 
-    void GenerarPreguntaYRespuestas()
+    IEnumerator GenerarPreguntaYRespuestas()
     {
         ChargeNewMessage();
         ChargeAnswers();
 
+        yield return new WaitForSeconds(tiempoEntrePreguntas);
 
         //Esbirro
         GameObject ObjetoTemporal = Instantiate(EsbirroMensajePrefab);//texto (Aun queda por cambiar el texto, se cambia siguiente a este)
@@ -199,6 +204,17 @@ public class GameManager : MonoBehaviour
         text[0].text= answerText1;
         text[1].text= answerText2;
 
+        numPreguntas++;
+        if (numPreguntas >= 3)
+            ObjetoContenidos.GetComponent<RefreshHeighttByContent>().ChangePositionY();
+
+    }
+
+    Color GenerateRandomColor(){
+        int t= Random.Range(0,colors.Length);
+        Color color;
+        ColorUtility.TryParseHtmlString(colors[t], out color);
+        return color;
     }
 
     Color GenerateRandomColor(){
@@ -233,11 +249,11 @@ public class GameManager : MonoBehaviour
 
         //cargar de nuevo los mensajes
 
-        GenerarPreguntaYRespuestas();
+        StartCoroutine(GenerarPreguntaYRespuestas());
 
         //aplicar movimiento al contenido
 
-        ObjetoContenidos.GetComponent<RefreshHeighttByContent>().ChangePositionY();
+        //ObjetoContenidos.GetComponent<RefreshHeighttByContent>().ChangePositionY();
 
 
     }

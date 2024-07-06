@@ -14,6 +14,6 @@ public class ButtonSearchManager : MonoBehaviour
     }
     public void SearchManager(int respuesta)
     {
-        manager.GetComponent<GameManager>().EliminarBotonesYGenerarTexto(respuesta); 
+        manager.GetComponent<GameManager>().EliminarBotonesYGenerarTexto(respuesta);
     }
 }
