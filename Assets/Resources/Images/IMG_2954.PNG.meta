@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fba8a7230bc4413499ab53c28a26d18e
+guid: e6548c5ff61f92941a8a4cceac2cf210
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,112 +121,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: locura_SpriteSheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 553
-        width: 602
-        height: 527
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 69a4419d567884b47bdbeecdea2dfa0e
-      internalID: -120423610
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: locura_SpriteSheet_1
-      rect:
-        serializedVersion: 2
-        x: 602
-        y: 553
-        width: 602
-        height: 527
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 68dd0278e4664664da8d2162c20f0d25
-      internalID: 1978173925
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: locura_SpriteSheet_2
-      rect:
-        serializedVersion: 2
-        x: 1204
-        y: 553
-        width: 602
-        height: 527
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 72aec4b487e730c4d860916d28842dc3
-      internalID: -1318456416
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: locura_SpriteSheet_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 26
-        width: 602
-        height: 527
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3725c44f04f1f0249b18442ec2feccfe
-      internalID: 922994118
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: locura_SpriteSheet_4
-      rect:
-        serializedVersion: 2
-        x: 602
-        y: 26
-        width: 602
-        height: 527
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bd7b567b59560074ab8c0b1baacee63b
-      internalID: -190625678
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -237,12 +132,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      locura_SpriteSheet_0: -120423610
-      locura_SpriteSheet_1: 1978173925
-      locura_SpriteSheet_2: -1318456416
-      locura_SpriteSheet_3: 922994118
-      locura_SpriteSheet_4: -190625678
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

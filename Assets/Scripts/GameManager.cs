@@ -182,7 +182,7 @@ public class GameManager : MonoBehaviour
         int imageNumber= Random.Range(0,colorsimages.Length);
         aux[0].sprite = colorsimages[imageNumber];
         imageNumber= Random.Range(0,images.Length);
-        aux[1].sprite = images[imageNumber];
+        aux[2].sprite = images[imageNumber];
         ObjetoTemporal.GetComponentInChildren<TMP_Text>().text = questionText;
 
         ObjetoTemporal = Instantiate(EsbirroMensajeVacioPrefab); //Vacio
