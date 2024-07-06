@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -54,6 +55,9 @@ public class GameManager : MonoBehaviour
     Resources sinews;
 
     private string nombreSecta;
+    private int day=5;
+    private int messageNumber=0;
+    private int acolyteGoal=0;
 
     private int numPreguntas = 0;
 
@@ -87,7 +91,8 @@ public class GameManager : MonoBehaviour
     //Funcion que cargara el CSV entero
     void LoadCSV (){
         string filePath;
-        if (idioma == "ESP")
+        filePath = Path.Combine(Application.dataPath + "/Textos", idioma+".tsv");
+        /**if (idioma == "ESP")
         {
             filePath = Path.Combine(Application.dataPath + "/Textos", "ESP.tsv");
         }
@@ -99,7 +104,7 @@ public class GameManager : MonoBehaviour
         {
             filePath = Path.Combine(Application.dataPath + "/Textos", "CAT.tsv");
         }
-        else filePath = "";
+        else filePath = "";**/
         if(File.Exists(filePath))
         {
             string[] data = File.ReadAllLines(filePath);
@@ -156,8 +161,15 @@ public class GameManager : MonoBehaviour
 
     void ChargeNewMessage()
     {
+        if(messageNumber == 5){
+            CheckFinals();
+            Refresh();
+            messageNumber = 0;
+            day +=1;
+        }
         Dictionary<string, string> entry = questionData[questionIndex];
         questionText = entry["Eventos"];
+        messageNumber +=1;
     }
 
     void ChargeAnswers()
@@ -268,10 +280,7 @@ public class GameManager : MonoBehaviour
     string[] ModifyValues(int questionIndex, int response){
         Dictionary<string, string> entry = questionData[questionIndex];
         string[] values = new string[4];
-        Debug.Log("Respuesta: "+response);
-        Debug.Log("OK");
         if(response == 1){
-            Debug.Log("OKKKKKK");
             //Valores de la Respuesta 1
             values[0] = entry["FelicidadResp1"];
             values[1] = entry["LocR1"];
@@ -281,7 +290,6 @@ public class GameManager : MonoBehaviour
 
             //return values;
         }else if(response == 2){
-            Debug.Log("Noooooo");
             //Valores de la Respuesta 2
             values[0] = entry["FelicidadResp2"];
             values[1] = entry["LocR2"];
@@ -291,7 +299,6 @@ public class GameManager : MonoBehaviour
             //return values;
         }
         else{
-            Debug.Log("yeyeyeyeye");
             //Valores de Respuesta Random
             values[0] = entry["FelicidadResp1"];
             values[1] = entry["LocR2"];
@@ -304,6 +311,47 @@ public class GameManager : MonoBehaviour
         sinews.ShowResources();
 
         return values;
+    }
+    void CheckFinals(){
+        CheckMad();
+        CheckInt();
+        if(day == 0){
+            CheckAcolyte();
+        }
+    }
+    void Refresh(){
+        foreach (Transform child in ContenidoMensajesEsbirros.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (Transform child in ContenidoMensajesNuestros.transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+    void CheckMad(){
+        if(sinews.GetMadness()==100){
+            SceneManager.LoadScene("Mad100");
+        }
+        if(sinews.GetMadness()==0){
+             SceneManager.LoadScene("Mad0");
+        }
+    }
+        void CheckInt(){
+        if(sinews.GetIntelligence()==100){
+             SceneManager.LoadScene("Int100");
+        }
+        if(sinews.GetIntelligence()==0){
+             SceneManager.LoadScene("Int0");
+        }
+    }
+        void CheckAcolyte(){
+        if(sinews.GetAcolyte()==acolyteGoal){
+
+        }
+        else{
+
+        }
     }
     /**
     string[] ModifyValues(int questionIndex, int response){
@@ -346,45 +394,5 @@ public class GameManager : MonoBehaviour
 
         return values;
     }**/
-
-    void CheckResources(){
-        CheckInt();
-        CheckMad();
-        CheckHapp();
-    }
-
-    void CheckInt(){
-        int n = 0;//sinews.GetMadness();
-        switch (n)
-        {
-            default:
-            break;
-        }
-    }
-
-    void CheckHapp(){
-        int n = 0;//sinews.GetMadness();
-        switch (n)
-        {
-            default:
-            break;
-        }
-    }
-
-    void CheckMad(){
-        int n = 0;//sinews.GetMadness();
-        n= n/25;
-        switch (n)
-        {
-            case  1:
-            break;
-            case  2:
-            break;
-            case  3:
-            break;
-            case  4:
-            break;
-        }
-    }
 
 }
