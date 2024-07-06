@@ -8,7 +8,9 @@ public class Resources : MonoBehaviour
     private int intelligence=50;
     private int madness=50;
     private int happiness=50;
-    private int acolytes=0;
+    private int acolytes=5;
+
+    private int percentage;
 
     private GameObject MadIcon;
     private GameObject IntIcon;
@@ -48,14 +50,17 @@ public class Resources : MonoBehaviour
         if (happiness <= 30)
         {
             hapImg.sprite = hapImages[0];
+            percentage = -35;
         }
         else if (happiness <= 65)
         {
             hapImg.sprite = hapImages[1];
+            percentage = 35;
         }
         else
         {
             hapImg.sprite = hapImages[2];
+            percentage = 75;
         }
 
         Image intImg = IntIcon.GetComponent<Image>();
@@ -117,7 +122,8 @@ public class Resources : MonoBehaviour
     }
 
     void AddAcolyte(){
-        
+        percentage= (happiness-50)+5;
+        acolytes += (acolytes*percentage/100);
     }
 
     public void SetResourceIcons(GameObject mad, GameObject intel, GameObject hap)
