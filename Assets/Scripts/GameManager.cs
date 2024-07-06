@@ -37,6 +37,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float tiempoEntrePreguntas = 5f;
 
+
+    [Header("Iconos")]
+    [SerializeField] private GameObject PanelIconos;
+    [SerializeField] private GameObject GChatIcon;
+
     //Guardar el dato de la pregunta encontrada
     private int NumeroPregunta=0;
 
@@ -57,6 +62,10 @@ public class GameManager : MonoBehaviour
 
     private int numPreguntas = 0;
 
+    private bool iconSelected = false;
+    private bool nameChosen = false;
+    private bool iniciaJuego = false;
+
     private void Awake() {
         sinews = FindObjectOfType<Resources>();
     }
@@ -69,14 +78,17 @@ public class GameManager : MonoBehaviour
         LoadMembersImage();
         questionIndex = GetLine();
         //LoadCSVLine(questionIndex);
-        StartCoroutine(GenerarPreguntaYRespuestas());
         ObjetoContenidos = GameObject.FindGameObjectWithTag("Content");
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (iconSelected && nameChosen && !iniciaJuego)
+        {
+            iniciaJuego = true;
+            StartCoroutine(GenerarPreguntaYRespuestas());
+        }
     }
 
     void LoadMembersImage (){
@@ -163,12 +175,26 @@ public class GameManager : MonoBehaviour
     void ChargeAnswers()
     {
         Dictionary<string, string> entry = questionData[questionIndex];
-        shortAnswerText1 = entry["Respuesta1"];
-        shortAnswerText2 = entry["Respuesta2"];
-        answerText1 = entry["CortoR1"];
-        if (answerText1 == "") answerText1 = entry["Respuesta1"];
-        answerText2 = entry["CortoR2"];
-        if (answerText2 == "") answerText2 = entry["Respuesta2"];
+        int rand = Random.Range(0,2);
+        if (rand == 0)
+        {
+            shortAnswerText1 = entry["Respuesta1"];
+            shortAnswerText2 = entry["Respuesta2"];
+            answerText1 = entry["CortoR1"];
+            if (answerText1 == "") answerText1 = entry["Respuesta1"];
+            answerText2 = entry["CortoR2"];
+            if (answerText2 == "") answerText2 = entry["Respuesta2"];
+        }
+        else
+        {
+            shortAnswerText2 = entry["Respuesta1"];
+            shortAnswerText1 = entry["Respuesta2"];
+            answerText2 = entry["CortoR1"];
+            if (answerText2 == "") answerText2 = entry["Respuesta1"];
+            answerText1 = entry["CortoR2"];
+            if (answerText1 == "") answerText1 = entry["Respuesta2"];
+        }
+        Debug.Log(rand);
     }
 
     IEnumerator GenerarPreguntaYRespuestas()
@@ -255,7 +281,11 @@ public class GameManager : MonoBehaviour
     {
         TMP_InputField ifComp = inputField.GetComponent<TMP_InputField>();
         nombreSecta = ifComp.text;
-        ifComp.interactable = false;
+        if (nombreSecta != "")
+        {
+            ifComp.enabled = false;
+            nameChosen = true;
+        }
     }
 
     string[] ModifyValues(int questionIndex, int response){
@@ -380,4 +410,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void IconSelect()
+    {
+        GChatIcon.GetComponent<Button>().interactable = false;
+        PanelIconos.SetActive(true);
+    }
+
+    public void ChangeIcon(int i)
+    {
+        Image[] iconos = PanelIconos.GetComponentsInChildren<Image>();
+        GChatIcon.GetComponent<Image>().sprite = iconos[i].sprite;
+        PanelIconos.SetActive(false);
+        iconSelected = true;
+    }
 }
