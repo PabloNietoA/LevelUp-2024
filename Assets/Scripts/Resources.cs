@@ -16,6 +16,10 @@ public class Resources : MonoBehaviour
     private GameObject IntIcon;
     private GameObject HapIcon;
 
+    public GameObject sliderInt;
+    public GameObject sliderMad;
+    public GameObject sliderHap;
+
     //Modifica los valores actuales de Inteligencia, Locra y Felicidad
     public void ModifyResource(string[] values){
         
@@ -119,6 +123,13 @@ public class Resources : MonoBehaviour
             madImg.color = new Color(255, 255, 255, 255);
             bigImage[1].color = new Color(255, 255, 255, 0);
         }
+
+        //modificacion de los sliders
+
+        sliderInt.GetComponent<Slider>().value = intelligence;
+        Debug.Log(sliderInt.GetComponent<Slider>().value);
+        sliderMad.GetComponent<Slider>().value = madness;
+        sliderHap.GetComponent<Slider>().value = happiness;
     }
 
     void AddAcolyte(){
