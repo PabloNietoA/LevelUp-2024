@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Idioma")]
 
-    [SerializeField] private string idioma = "ESP"; //ESP ENG CAT
+    [SerializeField] private string idioma; //ESP ENG CAT
 
     [SerializeField] private float tiempoEntrePreguntas = 5f;
 
@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        idioma = PlayerPrefs.GetString("language");
         sinews.SetResourceIcons(RecursoLocura, RecursoIntel, RecursoFelicidad);
         LoadCSV();
         LoadMembersImage();
@@ -135,7 +136,7 @@ public class GameManager : MonoBehaviour
 
     //Funcion que genera el index de la pregunta aleatoria
     int GetLine (){
-        return Random.Range(1,questionData.Count);
+        return Random.Range(0,questionData.Count);
     }
 
     /*

@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 164099279}
   - component: {fileID: 164099278}
   - component: {fileID: 164099277}
+  - component: {fileID: 164099281}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -294,6 +295,32 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &164099281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164099276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0375724ea13c52f468c4610bf54adc92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start: {fileID: 1368472192}
+  options: {fileID: 1394237132}
+  exit: {fileID: 279941731}
+  languageText: {fileID: 222689097}
+  sonido: {fileID: 1814494866}
+  master: {fileID: 3291957820213352997}
+  SFX: {fileID: 6138923507894102136}
+  music: {fileID: 8668801824003409039}
+  spanishText: {fileID: 858334730}
+  englishText: {fileID: 1454626780}
+  catalanaText: {fileID: 376215089}
+  back: {fileID: 1838909588}
+  back2: {fileID: 437005465}
+  back3: {fileID: 9125925114351167726}
 --- !u!1 &222689097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,7 +1159,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 800977811}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 164099281}
+        m_TargetAssemblyTypeName: SaveLanguage, Assembly-CSharp
+        m_MethodName: ModifyToEn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &800977811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3313,7 +3352,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1942512271}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 164099281}
+        m_TargetAssemblyTypeName: SaveLanguage, Assembly-CSharp
+        m_MethodName: ModifyToEs
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1942512271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3434,7 +3485,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2079069087}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 164099281}
+        m_TargetAssemblyTypeName: SaveLanguage, Assembly-CSharp
+        m_MethodName: ModifyToCat
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2079069087
 MonoBehaviour:
   m_ObjectHideFlags: 0
