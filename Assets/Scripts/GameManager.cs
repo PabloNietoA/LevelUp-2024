@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
     //Funcion que cargara el CSV entero
     void LoadCSV (){
         string filePath;
-        filePath = Path.Combine(Application.dataPath + "/Textos", idioma+".tsv");
+        filePath = Path.Combine(Application.streamingAssetsPath, idioma+".tsv");
         /**if (idioma == "ESP")
         {
             filePath = Path.Combine(Application.dataPath + "/Textos", "ESP.tsv");
