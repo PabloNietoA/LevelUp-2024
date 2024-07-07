@@ -17,6 +17,6 @@ public class DayAnimationController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        this.GetComponent<Animator>().SetBool("IsTop", IsTop);
     }
 }

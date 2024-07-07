@@ -40,6 +40,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private SceneManagment sceneManagmentObject;
 
+    [Header("Final de Dia")]
+
+    private int dias = 5;
+
+    [SerializeField] private GameObject PrevDay;
+    [SerializeField] private GameObject NextDay;
 
     //Guardar el dato de la pregunta encontrada
     private int NumeroPregunta=0;
@@ -320,8 +326,21 @@ public class GameManager : MonoBehaviour
 
     void FadeIn()
     {
+        PrevDay.GetComponent<TMP_Text>().text = dias.ToString();
+        NextDay.GetComponent<TMP_Text>().text = (dias-1).ToString();
+        dias -= 1;
         canvasGame.SetActive(false);
         canvasResume.SetActive(true);
+        Animator[] animators = canvasResume.GetComponentsInChildren<Animator>();
+        foreach (Animator animator in animators)
+        {
+            animator.SetTrigger("Restart");
+            Debug.Log("Restart");
+            if (animator.gameObject.GetComponent<DayAnimationController>().IsTop)
+            {
+                animator.GetComponent<Animator>().SetBool("IsTop", true);
+            }
+        }
     }
 
     public void FadeOut()

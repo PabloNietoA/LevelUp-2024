@@ -634,7 +634,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1650549487}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -1869,6 +1869,7 @@ GameObject:
   - component: {fileID: 974991365}
   - component: {fileID: 974991364}
   - component: {fileID: 974991366}
+  - component: {fileID: 974991367}
   m_Layer: 5
   m_Name: PrevDays
   m_TagString: Untagged
@@ -2013,6 +2014,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &974991367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974991362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd69962e68ee0745aa344210721d6ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsTop: 0
 --- !u!1 &984335456
 GameObject:
   m_ObjectHideFlags: 0
@@ -3291,7 +3305,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1626253428}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -4733,7 +4747,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1136864134}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -6479,6 +6493,8 @@ MonoBehaviour:
   idioma: ESP
   tiempoEntrePreguntas: 2
   sceneManagmentObject: {fileID: 1708687211}
+  PrevDay: {fileID: 974991362}
+  NextDay: {fileID: 1817778689}
 --- !u!224 &3619265769974291485
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7313,6 +7329,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e23e8d67ca9c20644a6252ca3badd729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sliderInt: {fileID: 346745909}
+  sliderMad: {fileID: 1883901071}
+  sliderHap: {fileID: 1540553548}
 --- !u!114 &7633350137839717198
 MonoBehaviour:
   m_ObjectHideFlags: 0
