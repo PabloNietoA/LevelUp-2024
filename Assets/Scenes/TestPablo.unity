@@ -1186,6 +1186,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 587557152}
   m_CullTransparentMesh: 1
+--- !u!1 &692933570 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5707738803971493670, guid: 0b5f455573ed0f843995583d30e45c67, type: 3}
+  m_PrefabInstance: {fileID: 1812235900}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &719517382
 GameObject:
   m_ObjectHideFlags: 0
@@ -2845,9 +2850,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3383191746716775533, guid: 0b5f455573ed0f843995583d30e45c67, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392427229925631790, guid: 0b5f455573ed0f843995583d30e45c67, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3433869591878204716, guid: 0b5f455573ed0f843995583d30e45c67, type: 3}
       propertyPath: m_Name
       value: CanvasResume
+      objectReference: {fileID: 0}
+    - target: {fileID: 3433869591878204716, guid: 0b5f455573ed0f843995583d30e45c67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3516023715036444420, guid: 0b5f455573ed0f843995583d30e45c67, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2856,6 +2873,22 @@ PrefabInstance:
     - target: {fileID: 3516023715036444420, guid: 0b5f455573ed0f843995583d30e45c67, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: FadeOut
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382288607027994046, guid: 0b5f455573ed0f843995583d30e45c67, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692902199074481772, guid: 0b5f455573ed0f843995583d30e45c67, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809082286862775310, guid: 0b5f455573ed0f843995583d30e45c67, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073035360110393791, guid: 0b5f455573ed0f843995583d30e45c67, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9206192720585931803, guid: 0b5f455573ed0f843995583d30e45c67, type: 3}
       propertyPath: m_Pivot.x
@@ -5195,6 +5228,7 @@ MonoBehaviour:
   sliderInt: {fileID: 1634153838}
   sliderMad: {fileID: 85245430}
   sliderHap: {fileID: 1626281021}
+  membersText: {fileID: 692933570}
 --- !u!114 &7633350137839717198
 MonoBehaviour:
   m_ObjectHideFlags: 0
