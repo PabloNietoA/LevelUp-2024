@@ -2946,7 +2946,7 @@ MonoBehaviour:
   RecursoLocura: {fileID: 378574694}
   RecursoIntel: {fileID: 1725300706}
   RecursoFelicidad: {fileID: 56650682}
-  idioma: ESP
+  idioma: CAT
   tiempoEntrePreguntas: 0.75
   PanelIconos: {fileID: 648842578}
   GChatIcon: {fileID: 927360318}

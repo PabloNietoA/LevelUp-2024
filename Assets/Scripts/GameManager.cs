@@ -175,26 +175,13 @@ public class GameManager : MonoBehaviour
     void ChargeAnswers()
     {
         Dictionary<string, string> entry = questionData[questionIndex];
-        int rand = Random.Range(0,2);
-        if (rand == 0)
-        {
-            shortAnswerText1 = entry["Respuesta1"];
-            shortAnswerText2 = entry["Respuesta2"];
-            answerText1 = entry["CortoR1"];
-            if (answerText1 == "") answerText1 = entry["Respuesta1"];
-            answerText2 = entry["CortoR2"];
-            if (answerText2 == "") answerText2 = entry["Respuesta2"];
-        }
-        else
-        {
-            shortAnswerText2 = entry["Respuesta1"];
-            shortAnswerText1 = entry["Respuesta2"];
-            answerText2 = entry["CortoR1"];
-            if (answerText2 == "") answerText2 = entry["Respuesta1"];
-            answerText1 = entry["CortoR2"];
-            if (answerText1 == "") answerText1 = entry["Respuesta2"];
-        }
-        Debug.Log(rand);
+
+        shortAnswerText1 = entry["Respuesta1"];
+        shortAnswerText2 = entry["Respuesta2"];
+        answerText1 = entry["CortoR1"];
+        if (answerText1 == "") answerText1 = entry["Respuesta1"];
+        answerText2 = entry["CortoR2"];
+        if (answerText2 == "") answerText2 = entry["Respuesta2"];
     }
 
     IEnumerator GenerarPreguntaYRespuestas()
@@ -257,9 +244,9 @@ public class GameManager : MonoBehaviour
         GameObject ObjetoTemporal = Instantiate(RespuestaPrefab);
         ObjetoTemporal.transform.parent = ContenidoMensajesNuestros.transform;
         if(numeroRespuesta == 1){
-            ObjetoTemporal.GetComponentInChildren<TMP_Text>().text = answerText1;
+            ObjetoTemporal.GetComponentInChildren<TMP_Text>().text = shortAnswerText1;
         }else{
-            ObjetoTemporal.GetComponentInChildren<TMP_Text>().text = answerText2;
+            ObjetoTemporal.GetComponentInChildren<TMP_Text>().text = shortAnswerText2;
         }
 
 
