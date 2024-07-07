@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: eae2bfc36702c4f48bc8c11d60c27caf
+  - enabled: 1
     path: Assets/Scenes/TestPablo.unity
     guid: 7af46de5c09bd4a41904e3f1dcebb27f
   - enabled: 1
@@ -29,7 +32,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mad100.unity
     guid: 2cc6bbe8e231a2b43be2329d5471666e
-  - enabled: 1
-    path: Assets/Scenes/Start.unity
-    guid: eae2bfc36702c4f48bc8c11d60c27caf
   m_configObjects: {}

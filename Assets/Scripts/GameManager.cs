@@ -215,7 +215,7 @@ public class GameManager : MonoBehaviour
 
         //Esbirro
         GameObject ObjetoTemporal = Instantiate(EsbirroMensajePrefab);//texto (Aun queda por cambiar el texto, se cambia siguiente a este)
-        ObjetoTemporal.transform.parent = ContenidoMensajesEsbirros.transform;
+        ObjetoTemporal.transform.SetParent(ContenidoMensajesEsbirros.transform);
         Image[] aux = ObjetoTemporal.GetComponentsInChildren<Image>();
         Color color = GenerateRandomColor();
         //aux[0].color = color;
@@ -226,15 +226,15 @@ public class GameManager : MonoBehaviour
         ObjetoTemporal.GetComponentInChildren<TMP_Text>().text = questionText;
 
         ObjetoTemporal = Instantiate(EsbirroMensajeVacioPrefab); //Vacio
-        ObjetoTemporal.transform.parent = ContenidoMensajesEsbirros.transform;
+        ObjetoTemporal.transform.SetParent(ContenidoMensajesEsbirros.transform);
 
 
         //Nuestro
         ObjetoTemporal = Instantiate(RespuestasVacioPrefab); //Vacio
-        ObjetoTemporal.transform.parent = ContenidoMensajesNuestros.transform;
+        ObjetoTemporal.transform.SetParent(ContenidoMensajesNuestros.transform);
 
         ObjetoTemporal = Instantiate(RespuestasBotonPrefab); //texto (Aun queda por cambiar el texto, se cambia siguiente a este)
-        ObjetoTemporal.transform.parent = ContenidoMensajesNuestros.transform;
+        ObjetoTemporal.transform.SetParent(ContenidoMensajesNuestros.transform);
         TMP_Text[] text= ObjetoTemporal.GetComponentsInChildren<TMP_Text>();
         text[0].text= answerText1;
         text[1].text= answerText2;
