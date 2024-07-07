@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private string idioma; //ESP ENG CAT
 
     [SerializeField] private float tiempoEntrePreguntas = 5f;
+    [Header("Iconos")]
+    [SerializeField] private GameObject PanelIconos;
+    [SerializeField] private GameObject GChatIcon;
 
     [SerializeField] private SceneManagment sceneManagmentObject;
 
@@ -56,6 +59,10 @@ public class GameManager : MonoBehaviour
     private int questionIndex;
 
     Resources sinews;
+
+    private bool iconSelected = false;
+    private bool nameChosen = false;
+    private bool iniciaJuego = false;
 
     private string nombreSecta;
     private int day=5;
@@ -77,7 +84,7 @@ public class GameManager : MonoBehaviour
         LoadMembersImage();
         questionIndex = GetLine();
         //LoadCSVLine(questionIndex);
-        StartCoroutine(GenerarPreguntaYRespuestas());
+        //StartCoroutine(GenerarPreguntaYRespuestas());
         ObjetoContenidos = GameObject.FindGameObjectWithTag("Content");
 
 
@@ -86,7 +93,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (iconSelected && nameChosen && !iniciaJuego)
+        {
+            iniciaJuego = true;
+            StartCoroutine(GenerarPreguntaYRespuestas());
+        }
     }
 
     void LoadMembersImage (){
@@ -273,7 +284,11 @@ public class GameManager : MonoBehaviour
     {
         TMP_InputField ifComp = inputField.GetComponent<TMP_InputField>();
         nombreSecta = ifComp.text;
-        ifComp.interactable = false;
+        if (nombreSecta != "")
+        {
+            ifComp.enabled = false;
+            nameChosen = true;
+        }
     }
 
     string[] ModifyValues(int questionIndex, int response){
@@ -409,5 +424,19 @@ public class GameManager : MonoBehaviour
 
         return values;
     }**/
+
+    public void IconSelect()
+    {
+        GChatIcon.GetComponent<Button>().interactable = false;
+        PanelIconos.SetActive(true);
+    }
+
+    public void ChangeIcon(int i)
+    {
+        Image[] iconos = PanelIconos.GetComponentsInChildren<Image>();
+        GChatIcon.GetComponent<Image>().sprite = iconos[i].sprite;
+        PanelIconos.SetActive(false);
+        iconSelected = true;
+    }
 
 }
