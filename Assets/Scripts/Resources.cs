@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Resources : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class Resources : MonoBehaviour
     public GameObject sliderInt;
     public GameObject sliderMad;
     public GameObject sliderHap;
+    [SerializeField] public GameObject membersText;
+
 
     //Modifica los valores actuales de Inteligencia, Locra y Felicidad
     public void ModifyResource(string[] values){
@@ -41,6 +44,7 @@ public class Resources : MonoBehaviour
 
         AddAcolyte();
         acolytes += int.Parse(values[3]);
+        membersText.GetComponent<TMP_Text>().text = "MIEMBROS: "+ acolytes +"/2000";
 
         ModifyMaxMin();
 

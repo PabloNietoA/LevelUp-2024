@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private SceneManagment sceneManagmentObject;
 
     [Header("Final de Dia")]
-
+    [SerializeField] private Button botonRefresh;
     private int dias = 5;
 
     [SerializeField] private GameObject PrevDay;
@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         idioma = PlayerPrefs.GetString("language");
+        botonRefresh.interactable=false;
         sinews.SetResourceIcons(RecursoLocura, RecursoIntel, RecursoFelicidad);
         LoadCSV();
         LoadMembersImage();
@@ -357,10 +358,19 @@ public class GameManager : MonoBehaviour
                 animator.GetComponent<Animator>().SetBool("IsTop", true);
             }
         }
+        StartCoroutine(InteractableButton());
+    }
+
+    IEnumerator InteractableButton()
+    {
+        yield return new WaitForSeconds(3f);
+        
+        botonRefresh.interactable=true;
     }
 
     public void FadeOut()
     {
+        botonRefresh.interactable=false;
         canvasGame.SetActive(true);
         canvasResume.SetActive(false);
     }
