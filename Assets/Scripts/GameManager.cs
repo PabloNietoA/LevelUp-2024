@@ -45,13 +45,13 @@ public class GameManager : MonoBehaviour
 
     [Header("Final de Dia")]
 
-    private int dias = 5;
-
     [SerializeField] private GameObject PrevDay;
     [SerializeField] private GameObject NextDay;
+    [SerializeField] private GameObject AccolytesText;
+
+    private int dias = 5;
 
     //Guardar el dato de la pregunta encontrada
-    private int NumeroPregunta=0;
 
     private List<Dictionary<string,string>> questionData = new List<Dictionary<string,string>>();
     private string[] keys;
@@ -71,11 +71,8 @@ public class GameManager : MonoBehaviour
     private bool iniciaJuego = false;
 
     private string nombreSecta;
-    private int day=5;
     private int messageNumber=0;
-    private int acolyteGoal=0;
-
-    private int numPreguntas = 0;
+    private int acolyteGoal=25;
 
     private void Awake() {
         sinews = FindObjectOfType<Resources>();
@@ -183,12 +180,11 @@ public class GameManager : MonoBehaviour
 
     void ChargeNewMessage()
     {
-        if(messageNumber == 5){
-            CheckFinals();
+        if(messageNumber == 10){
+            UpdateAccolytes();
             FadeIn();
             Refresh();
             messageNumber = 0;
-            day +=1;
         }
         Dictionary<string, string> entry = questionData[questionIndex];
         questionText = entry["Eventos"];
@@ -208,6 +204,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GenerarPreguntaYRespuestas()
     {
+        CheckFinals();
         ChargeNewMessage();
         ChargeAnswers();
 
@@ -239,12 +236,12 @@ public class GameManager : MonoBehaviour
         text[0].text= answerText1;
         text[1].text= answerText2;
 
-        numPreguntas++;
-        if (numPreguntas >= 3)
+        if (messageNumber >= 3)
             ObjetoContenidos.GetComponent<RefreshHeighttByContent>().ChangePositionY();
 
     }
 
+    //genera un color aleatorio para los iconos de los esbirros
     Color GenerateRandomColor(){
         int t= Random.Range(0,colors.Length);
         Color color;
@@ -335,9 +332,6 @@ public class GameManager : MonoBehaviour
     void CheckFinals(){
         CheckMad();
         CheckInt();
-        if(day == 0){
-            CheckAcolyte();
-        }
     }
 
     void FadeIn()
@@ -361,6 +355,11 @@ public class GameManager : MonoBehaviour
 
     public void FadeOut()
     {
+        if (sinews.GetAcolyte() < acolyteGoal || sinews.GetAcolyte() <= 0)
+            sceneManagmentObject.ChangeSceneByName("Lose");
+        else if (dias == 0)
+            sceneManagmentObject.ChangeSceneByName("Win");
+        acolyteGoal += acolyteGoal;
         canvasGame.SetActive(true);
         canvasResume.SetActive(false);
     }
@@ -393,6 +392,16 @@ public class GameManager : MonoBehaviour
             sceneManagmentObject.ChangeSceneByName("Int0");
         }
     }
+
+    void UpdateAccolytes()
+    {
+        int acolytes = sinews.GetAcolyte();
+        if (acolytes < acolyteGoal)
+            AccolytesText.GetComponent<TMP_Text>().color = Color.red;
+        string newText = "MIEMBROS: " + acolytes + "/" + acolyteGoal;
+        AccolytesText.GetComponent<TMP_Text>().text = newText;
+    }
+
     void CheckAcolyte(){
         if(sinews.GetAcolyte()==acolyteGoal){
             sceneManagmentObject.ChangeSceneByName("Win");
