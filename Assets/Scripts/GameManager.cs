@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.IO;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -83,7 +84,7 @@ public class GameManager : MonoBehaviour
     {
         idioma = PlayerPrefs.GetString("language");
         sinews.SetResourceIcons(RecursoLocura, RecursoIntel, RecursoFelicidad);
-        LoadCSV();
+        StartCoroutine(LoadCSVCoroutine());
         LoadMembersImage();
         questionIndex = GetLine();
         //LoadCSVLine(questionIndex);
@@ -108,43 +109,174 @@ public class GameManager : MonoBehaviour
         colorsimages = UnityEngine.Resources.LoadAll<Sprite>("Background");
     }
 
-    //Funcion que cargara el CSV entero
-    void LoadCSV (){
-        string filePath;
-        filePath = Path.Combine(Application.streamingAssetsPath, idioma+".tsv");
-        /**if (idioma == "ESP")
-        {
-            filePath = Path.Combine(Application.dataPath + "/Textos", "ESP.tsv");
-        }
-        else if (idioma == "ENG")
-        {
-            filePath = Path.Combine(Application.dataPath + "/Textos", "ENG.tsv");
-        }
-        else if (idioma == "CAT")
-        {
-            filePath = Path.Combine(Application.dataPath + "/Textos", "CAT.tsv");
-        }
-        else filePath = "";**/
-        if(File.Exists(filePath))
-        {
-            string[] data = File.ReadAllLines(filePath);
-            keys = data[0].Split("\t");
+    IEnumerator LoadCSVCoroutine()
+    {
+        string filePath = Path.Combine(Application.streamingAssetsPath, idioma+".tsv");
+        string espFilePath = Path.Combine(Application.streamingAssetsPath, "ESP.tsv");
 
-            for (int i = 1; i < data.Length; i++)
+        string[] espData;
+        string[] data;
+
+
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+        {
+            // Use UnityWebRequest to load from StreamingAssets in WebGL
+            using (var www = new UnityWebRequest(filePath))
             {
-                string[] values = data[i].Split("\t");
-                Dictionary<string,string> entry = new Dictionary<string,string>();
+                www.downloadHandler = new DownloadHandlerBuffer();
+                yield return www.SendWebRequest();
 
-                for (int j = 0; j < keys.Length; j++)
+                if (www.result == UnityWebRequest.Result.Success)
                 {
-                    entry[keys[j]] = values[j];
+                    string fileContent = www.downloadHandler.text;
+                    data = fileContent.Split('\n');
                 }
-                questionData.Add(entry);
+                else
+                {
+                    Debug.LogError("Error loading CSV: " + www.error);
+                    data = new string[0];
+                }
             }
+            using (var www = new UnityWebRequest(espFilePath))
+            {
+                www.downloadHandler = new DownloadHandlerBuffer();
+                yield return www.SendWebRequest();
+
+                if (www.result == UnityWebRequest.Result.Success)
+                {
+                    string fileContent = www.downloadHandler.text;
+                    espData = fileContent.Split('\n');
+                }
+                else
+                {
+                    Debug.LogError("Error loading CSV: " + www.error);
+                    espData = new string[0];
+                }
+            }
+        }
+        else if (File.Exists(filePath))
+        {
+
+            espData = File.ReadAllLines(espFilePath);
+            data = File.ReadAllLines(filePath);
+
         }
         else
         {
             Debug.Log("No hay Archivo CSV");
+            espData = new string[0];
+            data = new string[0];
+        }
+
+        if (espData != null)
+        {
+            keys = espData[0].Split("\t");
+
+            for (int i = 1; i < data.Length; i++)
+            {
+                string[] espValues = espData[i].Split("\t");
+                string[] values = data[i].Split("\t");
+
+                Dictionary<string, string> entry = new Dictionary<string, string>();
+
+                for (int j = 0; j < keys.Length; j++)
+                {
+                    entry[keys[j]] = espValues[j];
+                }
+                if (idioma != "ESP")
+                {
+                    for (int j = 0; j < data[0].Split("\t").Length; j++)
+                    {
+                        entry[keys[j]] = values[j];
+                    }
+                }
+                questionData.Add(entry);
+            }
+        }
+    }
+    //Funcion que cargara el CSV entero
+    void LoadCSV (){
+        string filePath = Path.Combine(Application.streamingAssetsPath, idioma + ".tsv");
+        string espFilePath = Path.Combine(Application.streamingAssetsPath, "ESP.tsv");
+
+        string[] espData;
+        string[] data;
+
+
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+        {
+            // Use UnityWebRequest to load from StreamingAssets in WebGL
+            using (var www = new UnityWebRequest(filePath))
+            {
+                www.downloadHandler = new DownloadHandlerBuffer();
+                www.SendWebRequest();
+
+                if (www.result == UnityWebRequest.Result.Success)
+                {
+                    string fileContent = www.downloadHandler.text;
+                    data = fileContent.Split('\n');
+                }
+                else
+                {
+                    Debug.LogError("Error loading CSV: " + www.error);
+                    data = new string[0];
+                }
+            }
+            using (var www = new UnityWebRequest(espFilePath))
+            {
+                www.downloadHandler = new DownloadHandlerBuffer();
+                www.SendWebRequest();
+
+                if (www.result == UnityWebRequest.Result.Success)
+                {
+                    string fileContent = www.downloadHandler.text;
+                    espData = fileContent.Split('\n');
+                }
+                else
+                {
+                    Debug.LogError("Error loading CSV: " + www.error);
+                    espData = new string[0];
+                }
+            }
+        }
+        else if (File.Exists(filePath))
+        {
+
+            espData = File.ReadAllLines(espFilePath);
+            data = File.ReadAllLines(filePath);
+
+        }
+        else
+        {
+            Debug.Log("No hay Archivo CSV");
+            espData = new string[0];
+            data = new string[0];
+        }
+
+        if (espData != null)
+        {
+            keys = espData[0].Split("\t");
+
+            for (int i = 1; i < data.Length; i++)
+            {
+                string[] espValues = espData[i].Split("\t");
+                string[] values = data[i].Split("\t");
+
+                Dictionary<string, string> entry = new Dictionary<string, string>();
+
+                for (int j = 0; j < keys.Length; j++)
+                {
+                    entry[keys[j]] = espValues[j];
+                }
+                if (idioma != "ESP")
+                {
+                    for (int j = 0; j < data[0].Split("\t").Length; j++)
+                    {
+                        entry[keys[j]] = values[j];
+                    }
+                }
+                questionData.Add(entry);
+            }
         }
     }
 
@@ -212,7 +344,7 @@ public class GameManager : MonoBehaviour
 
         //Esbirro
         GameObject ObjetoTemporal = Instantiate(EsbirroMensajePrefab);//texto (Aun queda por cambiar el texto, se cambia siguiente a este)
-        ObjetoTemporal.transform.SetParent(ContenidoMensajesEsbirros.transform);
+        ObjetoTemporal.transform.SetParent(ContenidoMensajesEsbirros.transform, false);
         Image[] aux = ObjetoTemporal.GetComponentsInChildren<Image>();
         Color color = GenerateRandomColor();
         //aux[0].color = color;
@@ -223,21 +355,20 @@ public class GameManager : MonoBehaviour
         ObjetoTemporal.GetComponentInChildren<TMP_Text>().text = questionText;
 
         ObjetoTemporal = Instantiate(EsbirroMensajeVacioPrefab); //Vacio
-        ObjetoTemporal.transform.SetParent(ContenidoMensajesEsbirros.transform);
+        ObjetoTemporal.transform.SetParent(ContenidoMensajesEsbirros.transform, false);
 
 
         //Nuestro
         ObjetoTemporal = Instantiate(RespuestasVacioPrefab); //Vacio
-        ObjetoTemporal.transform.SetParent(ContenidoMensajesNuestros.transform);
+        ObjetoTemporal.transform.SetParent(ContenidoMensajesNuestros.transform, false);
 
         ObjetoTemporal = Instantiate(RespuestasBotonPrefab); //texto (Aun queda por cambiar el texto, se cambia siguiente a este)
-        ObjetoTemporal.transform.SetParent(ContenidoMensajesNuestros.transform);
+        ObjetoTemporal.transform.SetParent(ContenidoMensajesNuestros.transform, false);
         TMP_Text[] text= ObjetoTemporal.GetComponentsInChildren<TMP_Text>();
         text[0].text= answerText1;
         text[1].text= answerText2;
 
-        if (messageNumber >= 3)
-            ObjetoContenidos.GetComponent<RefreshHeighttByContent>().ChangePositionY();
+        ObjetoContenidos.GetComponent<RefreshHeighttByContent>().ChangePositionY();
 
     }
 
@@ -261,11 +392,11 @@ public class GameManager : MonoBehaviour
 
         //aqui en seria utilizar el numeroRespuesta y sacar el texto apropiado
         GameObject ObjetoTemporal = Instantiate(RespuestaPrefab);
-        ObjetoTemporal.transform.parent = ContenidoMensajesNuestros.transform;
+        ObjetoTemporal.transform.SetParent(ContenidoMensajesNuestros.transform, false);
         if(numeroRespuesta == 1){
-            ObjetoTemporal.GetComponentInChildren<TMP_Text>().text = answerText1;
+            ObjetoTemporal.GetComponentInChildren<TMP_Text>().text = shortAnswerText1;
         }else{
-            ObjetoTemporal.GetComponentInChildren<TMP_Text>().text = answerText2;
+            ObjetoTemporal.GetComponentInChildren<TMP_Text>().text = shortAnswerText2;
         }
 
 
