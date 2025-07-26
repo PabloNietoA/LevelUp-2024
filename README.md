@@ -1,6 +1,6 @@
 <h1>CULTiva tu Secta</h1>
 
-Este es un repositorio que contiene el juego **CULTiva tu Secta**, desarrollado en la <a href=https://itch.io/jam/level-up-game-jam-2024>_Level Up Game Jam 2024_</a>, que tuvo lugar del 1 al 7 de Julio. 
+Este es un repositorio que contiene el proyecto de Unity del juego **CULTiva tu Secta**, desarrollado en la <a href=https://itch.io/jam/level-up-game-jam-2024>_Level Up Game Jam 2024_</a>, que tuvo lugar del 1 al 7 de Julio. 
 
 En esta game jam, se nos retó a crear un videojuego desde cero con la temática, _**Inteligencia colectiva vs. Locura colectiva**_.
 
