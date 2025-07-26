@@ -61,11 +61,11 @@ Para jugar, desempaque el archivo y ejecute el ejecutable dentro de la carpeta.
     <td>programador</td>
   </tr>
   <tr>
-    <td>Víctor Perez Inza</td>
+    <td>[Víctor Perez Inza](https://itch.io/profile/vpinza)</td>
     <td>traductor al catalán</td>
   </tr>
   <tr>
-    <td>Beatriz del Barrio Fernández</td>
+    <td>[Beatriz del Barrio Fernández](https://delbarriobb.itch.io/)</td>
     <td>sonidista</td>
   </tr>
 </table>
