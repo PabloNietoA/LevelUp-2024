@@ -32,7 +32,7 @@ Para jugar, desempaque el archivo y ejecute el ejecutable dentro de la carpeta.
     <th>Roles</th>
   </tr>
   <tr>
-    <td>Alba Jean Mcwhirter Sánchez</td>
+    <td><a href=https://github.com/BlueAlb>Alba Jean Mcwhirter Sánchez</a></td>
     <td>dirección/diseño</td>
   </tr>
   <tr>
@@ -52,11 +52,11 @@ Para jugar, desempaque el archivo y ejecute el ejecutable dentro de la carpeta.
     <td>programador</td>
   </tr>
   <tr>
-    <td>Víctor Albert Bat-Llosera Gallego</td>
+    <td><a href=https://github.com/BatlloseraDev>Víctor Albert Bat-Llosera Gallego</a></td>
     <td>programador</td>
   </tr>
   <tr>
-    <td>Carlos Morales Gallego</td>
+    <td><a href=https://github.com/carlox1998>Carlos Morales Gallego</a></td>
     <td>programador</td>
   </tr>
   <tr>
