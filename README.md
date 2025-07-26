@@ -37,11 +37,11 @@ Para jugar, desempaque el archivo y ejecute el ejecutable dentro de la carpeta.
     <td>dirección/diseño</td>
   </tr>
   <tr>
-    <td><a href=https://www.instagram.com/mar4artist/>Marta Inza González</a></td>
+    <td><a href=https://mar4itchio.itch.io/>Marta Inza González</a></td>
     <td>diseñadora</td>
   </tr>
   <tr>
-    <td>Lucía García-Salazar Rodríguez</td>
+    <td><a href=https://itch.io/profile/luziajones>Lucía García-Salazar Rodríguez</a></td>
     <td>artista</td>
   </tr>
   <tr>
